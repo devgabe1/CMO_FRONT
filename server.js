@@ -89,14 +89,14 @@ app.get("/servicos", (req, res) => {
         });
 });
 
-app.delete("/servicos", (req, res) => {
-  let { id, tit, desc, img, ordem, url, atv, oper } = req.body;
+app.put("/servicos", (req, res) => {
+  let { id, tit, desc, img, ordem, url, atv } = req.body;
 
   conexao.query(
-    `CALL sp_ed_servico(?, ?, ?, ?, ?, ?, ?, ?)`, [id, tit, desc, img, ordem, url, atv, oper], (erro, linhas)=>{
+    `CALL sp_ed_servico(?, ?, ?, ?, ?, ?, ?, ?)`, [id, tit, desc, img, ordem, url, atv, "U"], (erro, linhas)=>{
       if (erro){
-        console.erro("Problema ao deletar ou editar servico", erro);
-        res.status(500).send("Problema ao deletar ou editar servico");
+        console.error("Problema ao editar servico", erro);
+        res.status(500).send("Problema ao editar servico");
       }else{
         console.log(linhas);
         res.status(200).send("Servico alterado com sucesso");

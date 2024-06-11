@@ -17,7 +17,7 @@ BEGIN
     SET titulo_servico = tit,
 		desc_servico = descr,
         img_servico = img,
-        ativo = atv,
+        fl_servico = atv,
         url_servico = url,
         ordem_apresentacao = ord
         WHERE id_servico = id;
