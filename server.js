@@ -68,8 +68,8 @@ function verificarToken(req, res, next){
                 console.error("Problema ao selecionar servico", erro);
                 res.status(500).send("Problema ao selecionar servico");
             } else {
-                console.log(linhas);
-                res.status(200).send("Serviço selecionado com sucesso");
+                console.log("Serviço selecionado com sucesso");
+                res.status(200).json(linhas);
             }
         });
 });
