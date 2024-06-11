@@ -1,10 +1,11 @@
+DROP PROCEDURE IF EXISTS sp_ins_marca;
 DELIMITER //
 
 CREATE PROCEDURE SP_Ins_Marca (
      descricao VARCHAR(100),
      url VARCHAR(100),
      logo VARCHAR(100),
-     flagsp_ed_tipo_produto BOOLEAN
+     flag BOOLEAN
 )
 BEGIN
     DECLARE marcaExists INT;

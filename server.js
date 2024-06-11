@@ -10,7 +10,7 @@ const app = express();
 const porta = 3000;
 const conexao = mysql.createConnection({
     host: "localhost",
-    port:3306,
+    port:3307,
     database:"casaondas",
     user: "root",
     password: ""
@@ -148,7 +148,7 @@ app.get("/marcas", (req, res) => {
     let { id, desc, url, logo, atv} = req.body;
 
     conexao.query(
-      `CALL sp_ins_marca (?, ?, ?, ?, ?, 'U')`, [id, desc, url, logo, atv], (erro, linhas) =>{
+      `CALL sp_ins_marca ( ?, ?, ?, ?)`, [ desc, url, logo, atv], (erro, linhas) =>{
         if (erro){
           console.error("Erro ao inserir marca", erro)
           res.status(500).send("Erro ao inserir marca");
