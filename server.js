@@ -105,6 +105,21 @@ app.put("/servicos", (req, res) => {
 
 });
 
+app.delete("/servicos", (req, res)=>{
+  let id = req.body.id;
+
+  conexao.query(
+    `CALL sp_ed_servico(?, NULL, NULL, NULL, NULL, NULL, NULL, 'D')`, [id], (erro, linhas)=>{
+      if (erro){
+        console.error("Problema ao alterar servico", erro);
+        res.status(500).send("Problema ao alterar servico");
+      } else{
+        console.log(linhas);
+        res.status(200).send("Servico alterado com sucesso")
+      }
+    });
+});
+
 app.get("/marcas", (req, res) => {
     html = 
     `<html>
