@@ -61,6 +61,19 @@ function verificarToken(req, res, next){
     res.status(504).send("Usuário inválido ou inexitente");
   });
 
+  app.get("/servicos", (req, res) => {
+    conexao.query(
+        `SELECT * FROM servico where fl_servico IS TRUE`, (erro, linhas) =>{
+            if (erro) {
+                console.error("Problema ao selecionar servico", erro);
+                res.status(500).send("Problema ao selecionar servico");
+            } else {
+                console.log(linhas);
+                res.status(200).send("Serviço selecionado com sucesso");
+            }
+        });
+});
+
 app.post("/servicos", (req, res) => {
   let { tit, desc, url, img, ordem, atv } = req.body;
 
@@ -72,19 +85,6 @@ app.post("/servicos", (req, res) => {
             } else {
                 console.log(linhas);
                 res.status(200).send("Serviço inserido no banco de dados com sucesso");
-            }
-        });
-});
-
-app.get("/servicos", (req, res) => {
-    conexao.query(
-        `SELECT * FROM servico`, (erro, linhas) =>{
-            if (erro) {
-                console.error("Problema ao selecionar servico", erro);
-                res.status(500).send("Problema ao selecionar servico");
-            } else {
-                console.log(linhas);
-                res.status(200).send("Serviço selecionado com sucesso");
             }
         });
 });
@@ -131,9 +131,15 @@ app.get("/marcas", (req, res) => {
          <p>Este é o projeto do novo site da Casa do Micro-Ondas.</p>
        </body>
     </html>`;
- 
-    res.status(200).send(html);
-      //fazer uma SQL no banco de dados
-      //trazendo as marcas cadastradas e com o fl_marca TRUE
+    conexao.query(
+      `SELECT * FROM marca WHERE fl_marca IS TRUE;`, (erro, linhas) =>{
+        if (erro){
+          console.error("Erro ao selecionar marcas", erro);
+          res.status(500).send("Erro ao selecionar marcas");
+        } else{
+          console.log("Marcas selecionadas com sucesso");
+          res.status(200).json(linhas);
+        }
+      });
       //lista = html
   });
