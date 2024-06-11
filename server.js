@@ -143,3 +143,18 @@ app.get("/marcas", (req, res) => {
       });
       //lista = html
   });
+
+  app.post("/marcas", (req, res) =>{
+    let { desc, url, logo, atv} = req.body;
+
+    conexao.query(
+      `CALL sp_ins_marca (?, ?, ?, ?)`, [desc, url, logo, atv], (erro, linhas) =>{
+        if (erro){
+          console.error("Err ao inserir marca", erro)
+          res.status(500).send("Erro ao inserir marca");
+        } else{
+          console.log("Marca inserida com sucesso");
+          res.status(200).json(linhas);
+        }
+      });
+  });
