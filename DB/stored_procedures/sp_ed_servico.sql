@@ -2,7 +2,7 @@ DROP PROCEDURE IF EXISTS sp_ed_servico;
 DELIMITER //
 CREATE PROCEDURE sp_ed_servico (
 	IN id INTEGER,
-    IN tit VARCHAR(50),
+    IN tit VARCHAR(200),
     IN descr VARCHAR(200),
     IN img VARCHAR(200),
 	IN ord INTEGER,

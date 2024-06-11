@@ -4,7 +4,7 @@ CREATE PROCEDURE SP_Ins_Marca (
      descricao VARCHAR(100),
      url VARCHAR(100),
      logo VARCHAR(100),
-     flag BOOLEAN
+     flagsp_ed_tipo_produto BOOLEAN
 )
 BEGIN
     DECLARE marcaExists INT;
