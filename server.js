@@ -28,10 +28,6 @@ app.get("/", (req, resp)=> {
     resp.status(200).send("nosso servidor da CMO");
 });
 
-app.get("/servicos", (req, res) => {
-    res.status(200).send("rotas para trazer o servicos");
-});
-
 let html = '';
 
 // middleware
@@ -68,8 +64,8 @@ app.post("/servicos", (req, res) => {
     let tit = req.body.titulo;
     let desc = req.body.desc;
     let url = req.body.url;
-    let img = 'imagem'; //req.body.img;
-    let ordem = 1; //req.body.ordem;
+    let img = req.body.img;
+    let ordem = req.body.ordem;
     let ativo = true;
 
     conexao.query(
@@ -80,6 +76,19 @@ app.post("/servicos", (req, res) => {
             } else {
                 console.log(linhas);
                 res.status(200).send("Serviço inserido no banco de dados com sucesso");
+            }
+        });
+});
+
+app.get("/servicos", (req, res) => {
+    conexao.query(
+        `SELECT * FROM servico`, (erro, linhas) =>{
+            if (erro) {
+                console.error("Problema ao selecionar servico", erro);
+                res.status(500).send("Problema ao selecionar servico");
+            } else {
+                console.log(linhas);
+                res.status(200).send("Serviço selecionado com sucesso");
             }
         });
 });
