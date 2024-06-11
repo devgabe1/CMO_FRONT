@@ -83,3 +83,21 @@ app.post("/servicos", (req, res) => {
             }
         });
 });
+
+app.get("/marcas", (req, res) => {
+    html = 
+    `<html>
+       <head>
+         <title>Projeto CMO</title>
+       </head>
+       <body>
+         <h1>Casa do Micro-Ondas</h1>
+         <p>Este é o projeto do novo site da Casa do Micro-Ondas.</p>
+       </body>
+    </html>`;
+ 
+    res.status(200).send(html);
+      //fazer uma SQL no banco de dados
+      //trazendo as marcas cadastradas e com o fl_marca TRUE
+      //lista = html
+  });
