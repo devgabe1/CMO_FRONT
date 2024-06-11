@@ -145,7 +145,7 @@ app.get("/marcas", (req, res) => {
   });
 
   app.post("/marcas", (req, res) =>{
-    let { id, desc, url, logo, atv} = req.body;
+    let { desc, url, logo, atv} = req.body;
 
     conexao.query(
       `CALL sp_ins_marca ( ?, ?, ?, ?)`, [ desc, url, logo, atv], (erro, linhas) =>{
@@ -160,13 +160,13 @@ app.get("/marcas", (req, res) => {
   });
 
   app.put("/marcas", (req, res) =>{
-    let { desc, logo, url, atv, oper } = req.body;
+    let { id, desc, logo, url, atv } = req.body;
 
     conexao.query(
-      `CALL sp_ed_marca(?, ?, ?, ?, ?)`, [desc, logo, url, atv, oper], (erro, linhas)=>{
-        if (error){
-          console.error("Erro ao editar marca", erro);
-          res.status(500).send("Erro ao inserir marca.");
+      `CALL sp_ed_marca(?, ?, ?, ?, ?, 'U')`, [id, desc, logo, url, atv], (erro, linhas)=>{
+        if (erro){
+          console.error("Erro ao atualizar marca", erro);
+          res.status(500).send("Erro ao atualizar marca.");
         } else{
           console.log("Marca atualizada com sucesso.");
           res.status(200).json(linhas);

@@ -7,8 +7,8 @@ CREATE PROCEDURE sp_ed_marca (
     IN logo VArchar(100),
     IN url varchar(100),
     IN atv BOOLEAN,
-    IN oper CHAR(1),
-    OUT mensagem VARCHAR(50)
+    IN oper CHAR(1)
+   -- OUT mensagem VARCHAR(50)
 )
 BEGIN
     IF oper = 'U' THEN
