@@ -1,7 +1,7 @@
 import http from "http";
 import bodyParser from "body-parser";
 import express from "express";
-import mysql from "mysql";
+import mysql from "mysql2";
 import { error } from "console";
 
 const app = express();
