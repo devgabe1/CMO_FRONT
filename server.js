@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.listen(porta, () => {
     console.log("servidor rodando e escutando na porta 3000");
 });
+
 app.get("/", (req, resp)=> {
     resp.status(200).send("nosso servidor da CMO");
 });
@@ -55,7 +56,7 @@ function verificarToken(req, res, next){
       const token = jwt.sign({id}, SEGREDO, { expiresIn: 300}); // 5 min
   
       console.log("usuário marcos logou no sistema");
-      return res.status(500).json({autenticado: true, token: token});
+      return res.status(200).json({autenticado: true, token: token});
     };
     res.status(504).send("Usuário inválido ou inexitente");
   });
@@ -66,10 +67,10 @@ app.post("/servicos", (req, res) => {
     let url = req.body.url;
     let img = req.body.img;
     let ordem = req.body.ordem;
-    let ativo = true;
+    let atv = req.body.atv;
 
     conexao.query(
-        `CALL SP_Ins_Servico(?, ?, ?, ?, ?)`, [tit, desc, img, ordem, url], (erro, linhas) => {
+        `CALL SP_Ins_Servico(?, ?, ?, ?, ?, ?)`, [tit, desc, img, ordem, url, atv], (erro, linhas) => {
             if (erro) {
                 console.error("Problema ao inserir Serviço:", erro);
                 res.status(500).send("Problema ao inserir Serviço");
@@ -91,6 +92,29 @@ app.get("/servicos", (req, res) => {
                 res.status(200).send("Serviço selecionado com sucesso");
             }
         });
+});
+
+app.delete("/servicos", (req, res) => {
+  let id = req.body.id;
+  let tit = req.body.titulo;
+  let desc = req.body.desc;
+  let img = req.body.img;
+  let ordem = req.body.ordem;
+  let url = req.body.url;
+  let atv = req.body.atv;
+  let oper = req.body.oper;
+
+  conexao.query(
+    `CALL sp_ed_servico(?, ?, ?, ?, ?, ?, ?, ?)`, [id, tit, desc, img, ordem, url, atv, oper], (erro, linhas)=>{
+      if (erro){
+        console.erro("Problema ao deletar ou editar servico", erro);
+        res.status(500).send("Problema ao deletar ou editar servico");
+      }else{
+        console.log(linhas);
+        res.status(200).send("Servico alterado com sucesso");
+      }
+    });
+
 });
 
 app.get("/marcas", (req, res) => {

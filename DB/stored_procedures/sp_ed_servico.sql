@@ -5,11 +5,11 @@ CREATE PROCEDURE sp_ed_servico (
     IN tit VARCHAR(50),
     IN descr VARCHAR(200),
     IN img VARCHAR(200),
+	IN ord INTEGER,
     IN url varchar(100),
-    IN ord INTEGER,
     IN atv BOOLEAN,
-    IN oper CHAR(1),
-    OUT mensagem VARCHAR(50)
+    IN oper CHAR(1)
+    -- OUT mensagem VARCHAR(50)
     )
 BEGIN
 	IF(oper = 'U') THEN
@@ -23,9 +23,9 @@ BEGIN
         WHERE id_servico = id;
 	ELSE
 		UPDATE servico
-		SET ativo = FALSE
+		SET fl_servico = FALSE
 		WHERE id_servico = id;
         END IF;
-	SET mensagem = 'Operação realizada com sucesso';
+	-- SET mensagem = 'Operação realizada com sucesso';
 END //
 delimiter ;
