@@ -62,12 +62,7 @@ function verificarToken(req, res, next){
   });
 
 app.post("/servicos", (req, res) => {
-    let tit = req.body.titulo;
-    let desc = req.body.desc;
-    let url = req.body.url;
-    let img = req.body.img;
-    let ordem = req.body.ordem;
-    let atv = req.body.atv;
+  let { tit, desc, url, img, ordem, atv } = req.body;
 
     conexao.query(
         `CALL SP_Ins_Servico(?, ?, ?, ?, ?, ?)`, [tit, desc, img, ordem, url, atv], (erro, linhas) => {
@@ -95,14 +90,7 @@ app.get("/servicos", (req, res) => {
 });
 
 app.delete("/servicos", (req, res) => {
-  let id = req.body.id;
-  let tit = req.body.titulo;
-  let desc = req.body.desc;
-  let img = req.body.img;
-  let ordem = req.body.ordem;
-  let url = req.body.url;
-  let atv = req.body.atv;
-  let oper = req.body.oper;
+  let { id, tit, desc, img, ordem, url, atv, oper } = req.body;
 
   conexao.query(
     `CALL sp_ed_servico(?, ?, ?, ?, ?, ?, ?, ?)`, [id, tit, desc, img, ordem, url, atv, oper], (erro, linhas)=>{
