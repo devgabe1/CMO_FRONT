@@ -93,7 +93,7 @@ app.put("/servicos", (req, res) => {
   let { id, tit, desc, img, ordem, url, atv } = req.body;
 
   conexao.query(
-    `CALL sp_ed_servico(?, ?, ?, ?, ?, ?, ?, ?)`, [id, tit, desc, img, ordem, url, atv, "U"], (erro, linhas)=>{
+    `CALL sp_ed_servico(?, ?, ?, ?, ?, ?, ?, 'U')`, [id, tit, desc, img, ordem, url, atv], (erro, linhas)=>{
       if (erro){
         console.error("Problema ao editar servico", erro);
         res.status(500).send("Problema ao editar servico");
@@ -145,16 +145,32 @@ app.get("/marcas", (req, res) => {
   });
 
   app.post("/marcas", (req, res) =>{
-    let { desc, url, logo, atv} = req.body;
+    let { id, desc, url, logo, atv} = req.body;
 
     conexao.query(
-      `CALL sp_ins_marca (?, ?, ?, ?)`, [desc, url, logo, atv], (erro, linhas) =>{
+      `CALL sp_ins_marca (?, ?, ?, ?, ?, 'U')`, [id, desc, url, logo, atv], (erro, linhas) =>{
         if (erro){
-          console.error("Err ao inserir marca", erro)
+          console.error("Erro ao inserir marca", erro)
           res.status(500).send("Erro ao inserir marca");
         } else{
           console.log("Marca inserida com sucesso");
           res.status(200).json(linhas);
         }
       });
+  });
+
+  app.put("/marcas", (req, res) =>{
+    let { desc, logo, url, atv, oper } = req.body;
+
+    conexao.query(
+      `CALL sp_ed_marca(?, ?, ?, ?, ?)`, [desc, logo, url, atv, oper], (erro, linhas)=>{
+        if (error){
+          console.error("Erro ao editar marca", erro);
+          res.status(500).send("Erro ao inserir marca.");
+        } else{
+          console.log("Marca atualizada com sucesso.");
+          res.status(200).json(linhas);
+        }
+      }
+    )
   });
