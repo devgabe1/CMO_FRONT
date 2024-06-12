@@ -356,3 +356,20 @@ app.get("/marcas", (req, res) => {
       });
   }); 
 
+  app.delete("/tipoProduto", (req, res) =>{
+    let { id } = req.body;
+
+    conexao.query(
+      `CALL sp_ed_tipoproduto ( ?, NULL, 'D' )`, [ id ], (erro, linhas) =>{
+        if (erro){
+          console.error("Erro ao desativar tipo de produto", erro)
+          res.status(500).send("Erro ao desativar tipo de produto");
+        } else{
+          console.log("Tipo de produto desativado com sucesso");
+          res.status(200).json(linhas);
+        }
+      });
+  }); 
+
+
+
