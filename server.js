@@ -325,3 +325,18 @@ app.get("/marcas", (req, res) => {
         }
       });
   });
+
+  app.post("/tipoProduto", (req, res) =>{
+    let { desc} = req.body;
+
+    conexao.query(
+      `CALL sp_ins_tipoproduto ( ? )`, [ desc], (erro, linhas) =>{
+        if (erro){
+          console.error("Erro ao inserir tipo de produto", erro)
+          res.status(500).send("Erro ao inserir tipo de produto");
+        } else{
+          console.log("Tipo de produto inserido com sucesso");
+          res.status(200).json(linhas);
+        }
+      });
+  }); 
