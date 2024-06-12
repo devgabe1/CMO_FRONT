@@ -28,7 +28,7 @@ BEGIN
         )
         VALUES (
             descricao, idCliente, idTipo, idMarca, idModelo, numeroSerie, 
-            capacidadeProduto, problemaProduto, dataCadastro
+            capacidadeProduto, problemaProduto, dataCadastroprodutomarcamarca
         );
 
         SELECT 'Produto inserido com sucesso' AS message;

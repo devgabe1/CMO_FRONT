@@ -202,7 +202,6 @@ app.get("/marcas", (req, res) => {
           res.status(200).json(linhas);
         }
       });
-      //lista = html
   });
 
   app.post("/modelos", (req, res) =>{
@@ -263,7 +262,6 @@ app.get("/marcas", (req, res) => {
           res.status(200).json(linhas);
         }
       });
-      //lista = html
   });
 
   app.post("/produtos", (req, res) =>{
@@ -314,3 +312,16 @@ app.get("/marcas", (req, res) => {
     )
   });
 
+  app.get("/tipoProduto", (req, res) => {
+
+    conexao.query(
+      `SELECT * FROM tipoProduto;`, (erro, linhas) =>{
+        if (erro){
+          console.error("Erro ao selecionar tipos de produto", erro);
+          res.status(500).send("Erro ao selecionar tipos de produtos");
+        } else{
+          console.log("Tipos de Produto selecionados com sucesso");
+          res.status(200).json(linhas);
+        }
+      });
+  });
