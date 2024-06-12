@@ -174,3 +174,18 @@ app.get("/marcas", (req, res) => {
       }
     )
   });
+
+  app.delete("/marcas", (req, res) =>{
+    let id = req.body.id;
+    conexao.query(
+    `CALL sp_ed_marca(?, NULL, NULL, NULL, NULL, 'd')`, [id], (erro, linhas)=>{
+      if (erro){
+        console.error("Erro ao desativar marca", erro);
+        res.status(500).send("Erro ao desativar marca.");
+      } else{
+        console.log("Marca atualizada com sucesso", linhas);
+        res.status(200).json(linhas);
+      }
+    }
+  )
+  });
