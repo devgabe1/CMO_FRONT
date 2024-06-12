@@ -220,16 +220,16 @@ app.get("/marcas", (req, res) => {
       });
   });
 
-  app.put("/marcas", (req, res) =>{
-    let { id, desc, logo, url, atv } = req.body;
+  app.put("/modelos", (req, res) =>{
+    let { id, desc } = req.body;
 
     conexao.query(
-      `CALL sp_ed_marca(?, ?, ?, ?, ?, 'U')`, [id, desc, logo, url, atv], (erro, linhas)=>{
+      `CALL sp_ed_modelo(?, ?, 'U')`, [id, desc], (erro, linhas)=>{
         if (erro){
-          console.error("Erro ao atualizar marca", erro);
-          res.status(500).send("Erro ao atualizar marca.");
+          console.error("Erro ao atualizar modelos", erro);
+          res.status(500).send("Erro ao atualizar modelos.");
         } else{
-          console.log("Marca atualizada com sucesso.");
+          console.log("Modelos atualizada com sucesso.");
           res.status(200).json(linhas);
         }
       }
