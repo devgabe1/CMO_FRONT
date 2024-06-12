@@ -297,4 +297,20 @@ app.get("/marcas", (req, res) => {
       }
     )
   });
+  
+  app.delete("/produtos", (req, res) =>{
+    let { id } = req.body;
+
+    conexao.query(
+      `CALL sp_ed_produto(?, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'D' )`, [ id ], (erro, linhas) =>{
+        if (erro){
+          console.error("Erro ao desativar produto", erro);
+          res.status(500).send("Erro ao desativar produto.");
+        } else{
+          console.log("Produto desativado com sucesso.");
+          res.status(200).json(linhas);
+        }
+      }
+    )
+  });
 
