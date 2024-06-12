@@ -189,3 +189,64 @@ app.get("/marcas", (req, res) => {
     }
   )
   });
+
+  app.get("/modelos", (req, res) => {
+
+    conexao.query(
+      `SELECT * FROM modelo;`, (erro, linhas) =>{
+        if (erro){
+          console.error("Erro ao selecionar modelos", erro);
+          res.status(500).send("Erro ao selecionar modelos");
+        } else{
+          console.log("Modelos selecionadas com sucesso");
+          res.status(200).json(linhas);
+        }
+      });
+      //lista = html
+  });
+
+  app.post("/modelos", (req, res) =>{
+    let { desc } = req.body;
+
+    conexao.query(
+      `CALL sp_ins_modelo ( ? )`, [ desc ], (erro, linhas) =>{
+        if (erro){
+          console.error("Erro ao inserir modelo", erro)
+          res.status(500).send("Erro ao inserir modelo");
+        } else{
+          console.log("Modelo inserida com sucesso");
+          res.status(200).json(linhas);
+        }
+      });
+  });
+
+  app.put("/marcas", (req, res) =>{
+    let { id, desc, logo, url, atv } = req.body;
+
+    conexao.query(
+      `CALL sp_ed_marca(?, ?, ?, ?, ?, 'U')`, [id, desc, logo, url, atv], (erro, linhas)=>{
+        if (erro){
+          console.error("Erro ao atualizar marca", erro);
+          res.status(500).send("Erro ao atualizar marca.");
+        } else{
+          console.log("Marca atualizada com sucesso.");
+          res.status(200).json(linhas);
+        }
+      }
+    )
+  });
+
+  app.delete("/marcas", (req, res) =>{
+    let id = req.body.id;
+    conexao.query(
+    `CALL sp_ed_marca(?, NULL, NULL, NULL, NULL, 'd')`, [id], (erro, linhas)=>{
+      if (erro){
+        console.error("Erro ao desativar marca", erro);
+        res.status(500).send("Erro ao desativar marca.");
+      } else{
+        console.log("Marca atualizada com sucesso", linhas);
+        res.status(200).json(linhas);
+      }
+    }
+  )
+  });
