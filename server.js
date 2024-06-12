@@ -279,4 +279,22 @@ app.get("/marcas", (req, res) => {
           res.status(200).json(linhas);
         }
       });
+  }); 
+
+  app.put("/produtos", (req, res) =>{
+    let { id, desc, id_cliente, id_tipo, id_marca, id_modelo, numero_serie, capacidade_produto, problema_produto, data_cadastro, atv} = req.body;
+
+
+    conexao.query(
+      `CALL sp_ed_produto(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'U' )`, [ id, desc, id_cliente, id_tipo, id_marca, id_modelo, numero_serie, capacidade_produto, problema_produto, data_cadastro, atv], (erro, linhas) =>{
+        if (erro){
+          console.error("Erro ao atualizar produto", erro);
+          res.status(500).send("Erro ao atualizar produto.");
+        } else{
+          console.log("Produto atualizada com sucesso.");
+          res.status(200).json(linhas);
+        }
+      }
+    )
   });
+
