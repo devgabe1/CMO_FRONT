@@ -250,3 +250,18 @@ app.get("/marcas", (req, res) => {
     }
   )
   });
+
+  app.get("/produtos", (req, res) => {
+
+    conexao.query(
+      `SELECT * FROM produto;`, (erro, linhas) =>{
+        if (erro){
+          console.error("Erro ao selecionar produtos", erro);
+          res.status(500).send("Erro ao selecionar produtos");
+        } else{
+          console.log("Produtos selecionadas com sucesso");
+          res.status(200).json(linhas);
+        }
+      });
+      //lista = html
+  });
