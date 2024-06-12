@@ -265,3 +265,18 @@ app.get("/marcas", (req, res) => {
       });
       //lista = html
   });
+
+  app.post("/produtos", (req, res) =>{
+    let { desc, id_cliente, id_tipo, id_marca, id_modelo, numero_serie, capacidade_produto, problema_produto, data_cadastro} = req.body;
+
+    conexao.query(
+      `CALL sp_ins_produto ( ?, ?, ?, ?, ?, ?, ?, ?, ? )`, [ desc, id_cliente, id_tipo, id_marca, id_modelo, numero_serie, capacidade_produto, problema_produto, data_cadastro], (erro, linhas) =>{
+        if (erro){
+          console.error("Erro ao inserir produto", erro)
+          res.status(500).send("Erro ao inserir produto");
+        } else{
+          console.log("Produto inserida com sucesso");
+          res.status(200).json(linhas);
+        }
+      });
+  });
