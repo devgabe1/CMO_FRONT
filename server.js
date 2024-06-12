@@ -339,4 +339,20 @@ app.get("/marcas", (req, res) => {
           res.status(200).json(linhas);
         }
       });
+  });
+  
+  app.put("/tipoProduto", (req, res) =>{
+    let { id, desc, oper} = req.body;
+
+    conexao.query(
+      `CALL sp_ed_tipoproduto ( ?, ?, 'U' )`, [ id, desc, oper ], (erro, linhas) =>{
+        if (erro){
+          console.error("Erro ao editar tipo de produto", erro)
+          res.status(500).send("Erro ao editar tipo de produto");
+        } else{
+          console.log("Tipo de produto editado com sucesso");
+          res.status(200).json(linhas);
+        }
+      });
   }); 
+
