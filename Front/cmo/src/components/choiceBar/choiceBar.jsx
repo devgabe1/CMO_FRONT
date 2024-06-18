@@ -1,13 +1,17 @@
-// src/components/choiceBar/ChoiceBar.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './choiceBar.css';
 import Logo from '../../../logoBranca.png'; // Importe da imagem
 
-
 function ChoiceBar() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   const options = [
-    { label: <img src={Logo} alt="Ícone de Busca" />, path: '/' },
+    { label: 'Home', path: '/' },
     { label: 'Localização', path: '/localizacao' },
     { label: 'Fotos', path: '/fotos' },
     { label: 'Busca e Entrega', path: '/busca-e-entrega' },
@@ -16,12 +20,27 @@ function ChoiceBar() {
   ];
 
   return (
-    <div className="choice-bar">
-      {options.map((option, index) => (
-        <Link key={index} to={option.path} className="choice-item">
-          {option.label}
-        </Link>
-      ))}
+    <div>
+      <div className="choice-bar">
+        <span className="menu-icon" onClick={toggleSidebar}>
+          &#9776;
+        </span>
+        {options.map((option, index) => (
+          <Link key={index} to={option.path} className="choice-item">
+            {option.label}
+          </Link>
+        ))}
+      </div>
+      <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+        <a href="#" className="close-btn" onClick={toggleSidebar}>
+          &times;
+        </a>
+        {options.map((option, index) => (
+          <Link key={index} to={option.path} onClick={toggleSidebar}>
+            {option.label}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
