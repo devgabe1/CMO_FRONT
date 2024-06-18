@@ -14,16 +14,19 @@
   /* Estilos para o cabeçalho h1 */
   h1 {
     font-size: 2.5rem; /* Tamanho grande para o título principal */
-    color: #333; /* Cor do texto */
+    color: #000000; /* Cor do texto */
     margin-bottom: 1px; /* Espaçamento inferior */
+    font-family: 'SST';
   }
   
   /* Estilos para os parágrafos p */
   p {
     font-size: 1.1rem; /* Tamanho do texto */
     line-height: 1.6; /* Altura da linha para melhor legibilidade */
-    color: #666; /* Cor do texto */
+    color: #666666; /* Cor do texto */
     margin-bottom: 1px; /* Espaçamento inferior */
+    font-family: 'SST';
+    font-weight: bold;
   }
   
   /* Estilos adicionais para o formulário */
@@ -31,5 +34,8 @@
     width: 100%;
     max-width: 600px; /* Largura máxima do formulário */
     margin: 0 auto; /* Centraliza o formulário horizontalmente */
+    font-family: 'SST';
+
   }
+  
   
