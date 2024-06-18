@@ -6,8 +6,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 // Exemplo de imagens (substitua pelos seus próprios caminhos)
-import CarouselImage1 from './carrosel1.png';
-import CarouselImage2 from './carrosel2.png';
+import CarouselImage1 from './carrossel1.png';
+import CarouselImage2 from './carrossel2.png';
 
 const Carousel = () => {
   const settings = {
@@ -35,7 +35,7 @@ const Carousel = () => {
             <img
               src={image.url}
               alt={image.alt}
-              style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+              style={{ width: 'auto', height: 'auto', objectFit: 'cover' }}
             />
           </div>
         ))}
