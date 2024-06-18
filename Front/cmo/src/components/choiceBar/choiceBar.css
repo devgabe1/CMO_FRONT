@@ -105,4 +105,8 @@
   font-size: 36px;
   cursor: pointer;
 }
+
+.main-content {
+  padding-top: 80px; /* Ajuste este valor conforme a altura da sua ChoiceBar */
+}
   

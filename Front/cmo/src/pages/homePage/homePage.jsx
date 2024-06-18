@@ -6,7 +6,9 @@ import ChoiceBar from '../../components/choiceBar/choiceBar';
 const HomePage = () => {
   return (
     <div className="home-page">
+      <div className="main-content"> 
       <ChoiceBar />
+      </div>
       <Carousel />
       <div className="home-content">
         <h2>Bem-vindo à Página Inicial</h2>
