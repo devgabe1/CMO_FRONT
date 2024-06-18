@@ -2,7 +2,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import ChoiceBar from './components/choiceBar/choiceBar';
 import HomePage from './pages/homePage/homePage';
 import LocationPage from './pages/locationPage/LocationPage';
 import PhotoPage from './pages/photoPage/photoPage';
@@ -14,7 +13,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <ChoiceBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/localizacao" element={<LocationPage />} />
