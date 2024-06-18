@@ -1,0 +1,29 @@
+// src/components/choiceBar/ChoiceBar.jsx
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './choiceBar.css';
+import Logo from '../../../logoBranca.png'; // Importe da imagem
+
+
+function ChoiceBar() {
+  const options = [
+    { label: <img src={Logo} alt="Ícone de Busca" />, path: '/' },
+    { label: 'Localização', path: '/localizacao' },
+    { label: 'Fotos', path: '/fotos' },
+    { label: 'Busca e Entrega', path: '/busca-e-entrega' },
+    { label: 'Conserto em 30 Minutos', path: '/conserto' },
+    { label: 'Contato', path: '/contato' },
+  ];
+
+  return (
+    <div className="choice-bar">
+      {options.map((option, index) => (
+        <Link key={index} to={option.path} className="choice-item">
+          {option.label}
+        </Link>
+      ))}
+    </div>
+  );
+}
+
+export default ChoiceBar;
