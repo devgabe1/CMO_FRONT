@@ -1,22 +1,39 @@
 import http from "http";
 import bodyParser from "body-parser";
 import express from "express";
-import mysql from "mysql2";
+import sqlServer from "mssql";
 import { error } from "console";
 import jwt from "jsonwebtoken";
 
+const dbConfig = {
+server: "52.5.245.24",
+database: "cmo",
+user: "adminCMO",
+password: "@Uniandrade_2024",
+port: 1433,
+options: {
+  trustServerCertificate: true,
+}
+};
+
+const conexao = sqlServer.connect(dbConfig, (err) => {
+  if (err)
+    console.log(err)
+  else
+    console.log('Conectado com SQL Server');
+});
 const SEGREDO = 'REMOTA';
 const app = express();
 const porta = 3000;
-const conexao = mysql.createConnection({
-    host: "localhost",
-    port:3307,
-    database:"casaondas",
-    user: "root",
-    password: ""
-});
+// const conexao = mysql.createConnection({
+//     host: "localhost",
+//     port:3306,
+//     database:"casaondas",
+//     user: "root",
+//     password: ""
+// });
 
-conexao.connect();
+// conexao.connect();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -74,20 +91,20 @@ function verificarToken(req, res, next){
         });
 });
 
-app.post("/servicos", (req, res) => {
-  let { tit, desc, url, img, ordem, atv } = req.body;
-
-    conexao.query(
-        `CALL SP_Ins_Servico(?, ?, ?, ?, ?, ?)`, [tit, desc, img, ordem, url, atv], (erro, linhas) => {
-            if (erro) {
-                console.error("Problema ao inserir Serviço:", erro);
-                res.status(500).send("Problema ao inserir Serviço");
-            } else {
-                console.log(linhas);
-                res.status(200).send("Serviço inserido no banco de dados com sucesso");
-            }
-        });
-});
+//app.post("/servicos", (req, res) => {
+//  let { tit, desc, url, img, ordem, atv } = req.body;
+//
+//    conexao.query(
+//        `CALL SP_Ins_Servico(?, ?, ?, ?, ?, ?)`, [tit, desc, img, ordem, url, atv], (erro, linhas) => {
+//            if (erro) {
+//                console.error("Problema ao inserir Serviço:", erro);
+//                res.status(500).send("Problema ao inserir Serviço");
+//            } else {
+//                console.log(linhas);
+//                res.status(200).send("Serviço inserido no banco de dados com sucesso");
+//            }
+//        });
+//});
 
 app.put("/servicos", (req, res) => {
   let { id, tit, desc, img, ordem, url, atv } = req.body;
@@ -120,6 +137,25 @@ app.delete("/servicos", (req, res)=>{
     });
 });
 
+app.post("/servicos", (req, res) => {
+  let tit = req.body.titulo;
+  let desc = req.body.desc;
+  let url = req.body.url;
+  let img = req.body.img;
+  let ordem = req.body.ordem;
+  let ativo = '1';
+conexao.query(`exec SP_Ins_Servico 
+'${tit}', '${desc}', '${url}', 
+'${img}', ${ordem}, ${ativo}`, (erro, resultado) => {
+  if (erro) {
+    console.log(erro);
+    res.status(500).send('Problema ao inserir serviço');
+  } else {
+    console.log(resultado);
+    res.status(200).send('Serviço inserido com sucesso');
+  }
+  });
+});
 app.get("/marcas", (req, res) => {
     html = 
     `<html>
