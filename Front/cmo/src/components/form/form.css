@@ -14,10 +14,10 @@
   }
   
   .campo-formulario {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
   
-  label {
+  .campo-formulario label {
     display: block;
     margin-bottom: 5px;
   }
@@ -47,3 +47,22 @@
     background-color: #0056b3;
   }
   
+  .campo-formulario input,
+  .campo-formulario textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .campo-formulario.com-erro input,
+  .campo-formulario.com-erro textarea {
+    border-color: #ff0000; /* Bordas vermelhas para campos com erro */
+  }
+  
+  .mensagem-erro {
+    color: #ff0000; /* Cor vermelha para a mensagem de erro */
+    font-size: 14px;
+    margin-top: 5px;
+  }
