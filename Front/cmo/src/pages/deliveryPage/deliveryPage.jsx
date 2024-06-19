@@ -13,6 +13,7 @@ function DeliveryPage() {
   };
 
   return (
+    <div className='page-backgroundDelivery'>
     <div className="page-containerDelivery">
       <div className="main-content"> 
         <ChoiceBar />
@@ -22,6 +23,7 @@ function DeliveryPage() {
       <button className="whatsapp-button" onClick={handleWhatsAppClick}>
         Pedir pelo WhatsApp
       </button>
+    </div>
     </div>
   );
 }
