@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './choiceBar.css';
-import Logo from '../../../logoBranca.png'; // Importe da imagem
 
 function ChoiceBar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -13,7 +12,7 @@ function ChoiceBar() {
   const options = [
     { label: 'Home', path: '/' },
     { label: 'Localização', path: '/localizacao' },
-    { label: 'Fotos', path: '/fotos' },
+    { label: 'Serviços', path: '/servicos' },
     { label: 'Busca e Entrega', path: '/busca-e-entrega' },
     { label: 'Conserto em 30 Minutos', path: '/conserto' },
     { label: 'Contato', path: '/contato' },
