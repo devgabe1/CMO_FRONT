@@ -9,18 +9,17 @@ function LocationPage() {
         <ChoiceBar />
       </div>
       <h1>Localização</h1>
-      <p>Bem-vindo à nossa página de localização.</p>
       <p>Encontre-nos nos endereços abaixo:</p>
+      <p>Ambas as lojas contam com estacionamento!</p>
 
       <div className="locations-container">
         <div className="location-section">
           <h2>Loja 1</h2>
-          <p>Rua Exemplo, 123, Bairro Exemplo, Cidade A, Estado, CEP 12345-678</p>
+          <p>Av. Pres. Kennedy, 410 - Rebouças</p>
           <div className="map-container">
             <iframe
               title="Localização Loja 1"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8959476676594!2d-122.41941548468113!3d37.77492927975971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c1b7ef61b%3A0x4e9f5b1c1b2d0e!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbr!4v1634634163154!5m2!1sen!2sbr"
-              width="600"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7205.100835950869!2d-49.265392!3d-25.453290000000003!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce48c9e3e3e4b%3A0x94da37baf10ee50e!2sAv.%20Pres.%20Kennedy%2C%20410%20-%20Rebou%C3%A7as%2C%20Curitiba%20-%20PR%2C%2080220-200%2C%20Brasil!5e0!3m2!1spt-PT!2sus!4v1718795539507!5m2!1spt-PT!2sus"              width="600"
               height="450"
               style={{ border: 0 }}
               allowFullScreen=""
@@ -31,12 +30,11 @@ function LocationPage() {
 
         <div className="location-section">
           <h2>Loja 2</h2>
-          <p>Rua Exemplo, 456, Bairro Exemplo, Cidade B, Estado, CEP 98765-432</p>
+          <p>R. Saturnino Miranda, 84 - Santa Felicidade</p>
           <div className="map-container">
             <iframe
               title="Localização Loja 2"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8959476676594!2d-122.41941548468113!3d37.77492927975971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c1b7ef61b%3A0x4e9f5b1c1b2d0e!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbr!4v1634634163154!5m2!1sen!2sbr"
-              width="600"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28833.134075078815!2d-49.334163!3d-25.400065000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce1ae328a748b%3A0x7cfdac29470a291d!2sR.%20Saturnino%20Miranda%2C%2084%20-%20Santa%20Felicidade%2C%20Curitiba%20-%20PR%2C%2082030-320%2C%20Brasil!5e0!3m2!1spt-BR!2sus!4v1718795658385!5m2!1spt-BR!2sus"              width="600"
               height="450"
               style={{ border: 0 }}
               allowFullScreen=""

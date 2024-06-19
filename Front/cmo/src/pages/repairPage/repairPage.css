@@ -1,0 +1,75 @@
+/* Remover margens e preenchimentos do body e html */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Evita barra de rolagem horizontal */
+}
+
+/* Estilos para centralizar o conteúdo da página de reparo */
+.repair-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza horizontalmente */
+  text-align: center; /* Centraliza o texto */
+  padding: 20px; /* Espaçamento interno */
+  box-sizing: border-box; /* Inclui padding e border no tamanho total */
+  min-height: 100vh; /* Garante que o contêiner ocupe a altura total da viewport */
+  font-family: 'Arial', sans-serif; /* Fonte mais legível */
+  background-image: url('../../background/backgroundRepair.png'); /* Caminho para a sua imagem */
+  background-size: cover; /* Faz com que a imagem cubra todo o fundo */
+  background-position: center; /* Centraliza a imagem no fundo */
+  background-repeat: no-repeat; /* Evita a repetição da imagem */
+  width: 100%; /* Garante que a largura do contêiner seja 100% */
+}
+
+/* Estilos para o cabeçalho h1 */
+.repair-page-container h1 {
+  font-size: 2.8rem; /* Tamanho grande para o título principal */
+  color: #fff; /* Cor do texto */
+  margin-bottom: 20px; /* Espaçamento inferior */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fonte mais elegante */
+  font-weight: normal; /* Define o peso da fonte como normal */
+}
+
+/* Estilos para os parágrafos p */
+.repair-page-container p {
+  font-size: 1.2rem; /* Tamanho do texto */
+  line-height: 1.8; /* Altura da linha para melhor legibilidade */
+  color: #fff; /* Cor do texto */
+  margin-bottom: 20px; /* Espaçamento inferior */
+  max-width: 800px; /* Limita a largura dos parágrafos */
+  font-weight: normal; /* Define o peso da fonte como normal */
+}
+
+/* Estilos para a lista de condições */
+.repair-list {
+  list-style-type: none; /* Remove marcadores da lista */
+  padding: 0;
+  margin: 20px 0; /* Espaçamento vertical da lista */
+  text-align: left; /* Alinha o texto à esquerda dentro da lista */
+  max-width: 800px; /* Largura máxima da lista */
+  font-weight: normal; /* Define o peso da fonte como normal */
+}
+
+/* Estilos para os itens da lista */
+.repair-list li {
+  background-color: rgba(255, 255, 255, 0.8); /* Cor de fundo dos itens com transparência */
+  margin: 10px 0; /* Espaçamento vertical entre os itens */
+  padding: 15px; /* Espaçamento interno dos itens */
+  border-radius: 5px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  font-size: 1.1rem; /* Tamanho do texto dos itens */
+  line-height: 1.6; /* Altura da linha para melhor legibilidade */
+  font-weight: normal; /* Define o peso da fonte como normal */
+}
+
+/* Estilos para as notas adicionais */
+.note {
+  display: block;
+  font-size: 0.9rem; /* Tamanho menor para as notas */
+  color: #333; /* Cor das notas */
+  margin-top: 5px; /* Espaçamento superior das notas */
+  font-weight: normal; /* Define o peso da fonte como normal */
+}

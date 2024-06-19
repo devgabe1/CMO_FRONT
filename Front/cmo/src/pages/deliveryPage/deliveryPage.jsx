@@ -5,10 +5,10 @@ import './deliveryPage.css'; // Importa o arquivo de estilos CSS
 
 function DeliveryPage() {
   const handleWhatsAppClick = () => {
-    const phoneNumber = '5511999999999'; // Substitua pelo número de telefone da sua loja com o código do país
-    const message = 'Olá, gostaria de fazer um pedido de delivery.';
+    const phoneNumber = '554198988376';
+    const message = 'Olá, gostaria de fazer um pedido de busca/entrega.';
     const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
+    window.open(url, '_blank'); 
   };
 
   return (
