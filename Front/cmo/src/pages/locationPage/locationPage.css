@@ -9,6 +9,16 @@
     padding: 20px; /* Espaçamento interno */
     box-sizing: border-box; /* Inclui padding e border no tamanho total */
   }
+
+  .page-backgroundLocation{
+    background-image: url('../../background/backgroundLocation.png'); /* Caminho para a sua imagem */
+    background-size: cover; /* Faz com que a imagem cubra todo o fundo */
+    background-position: center; /* Centraliza a imagem no fundo */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    width: 100%; /* Garante que a largura do contêiner seja 100% */
+    height: 100vh; /* Defina uma altura mínima ou use altura dinâmica conforme o conteúdo */
+
+  }
   
   /* Estilos para o contêiner das seções de localização */
   .locations-container {

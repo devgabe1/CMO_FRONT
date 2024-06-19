@@ -5,6 +5,7 @@ import ChoiceBar from '../../components/choiceBar/choiceBar';
 
 function LocationPage() {
   return (
+    <div className='page-backgroundLocation'>
     <div className="page-containerLocation">
       <div className="main-content"> 
         <ChoiceBar />
@@ -44,6 +45,7 @@ function LocationPage() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
