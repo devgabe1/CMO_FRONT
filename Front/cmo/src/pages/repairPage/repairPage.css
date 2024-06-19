@@ -24,25 +24,6 @@ html, body {
   width: 100%; /* Garante que a largura do contêiner seja 100% */
 }
 
-/* Estilos para o cabeçalho h1 */
-.repair-page-container h1 {
-  font-size: 2.8rem; /* Tamanho grande para o título principal */
-  color: #fff; /* Cor do texto */
-  margin-bottom: 20px; /* Espaçamento inferior */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fonte mais elegante */
-  font-weight: normal; /* Define o peso da fonte como normal */
-}
-
-/* Estilos para os parágrafos p */
-.repair-page-container p {
-  font-size: 1.2rem; /* Tamanho do texto */
-  line-height: 1.8; /* Altura da linha para melhor legibilidade */
-  color: #fff; /* Cor do texto */
-  margin-bottom: 20px; /* Espaçamento inferior */
-  max-width: 800px; /* Limita a largura dos parágrafos */
-  font-weight: normal; /* Define o peso da fonte como normal */
-}
-
 /* Estilos para a lista de condições */
 .repair-list {
   list-style-type: none; /* Remove marcadores da lista */
@@ -55,7 +36,7 @@ html, body {
 
 /* Estilos para os itens da lista */
 .repair-list li {
-  background-color: rgba(255, 255, 255, 0.8); /* Cor de fundo dos itens com transparência */
+  background-color: rgba(255, 255, 255, 0.9); /* Cor de fundo dos itens com transparência */
   margin: 10px 0; /* Espaçamento vertical entre os itens */
   padding: 15px; /* Espaçamento interno dos itens */
   border-radius: 5px; /* Bordas arredondadas */

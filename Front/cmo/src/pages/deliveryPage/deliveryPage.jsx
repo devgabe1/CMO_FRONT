@@ -2,6 +2,7 @@
 import React from 'react';
 import ChoiceBar from '../../components/choiceBar/choiceBar';
 import './deliveryPage.css'; // Importa o arquivo de estilos CSS
+import '../../styles/global.css'
 
 function DeliveryPage() {
   const handleWhatsAppClick = () => {
@@ -12,7 +13,7 @@ function DeliveryPage() {
   };
 
   return (
-    <div className="page-container">
+    <div className="page-containerDelivery">
       <div className="main-content"> 
         <ChoiceBar />
       </div>

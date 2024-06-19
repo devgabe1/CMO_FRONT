@@ -1,28 +1,13 @@
 /* locationPage.css */
 
 /* Estilos para centralizar o conteúdo */
-.page-container {
+.page-containerLocation {
     display: flex;
     flex-direction: column;
     align-items: center; /* Centraliza horizontalmente */
     text-align: center; /* Centraliza o texto */
     padding: 20px; /* Espaçamento interno */
     box-sizing: border-box; /* Inclui padding e border no tamanho total */
-  }
-  
-  /* Estilos para o cabeçalho h1 */
-  h1 {
-    font-size: 2.5rem; /* Tamanho grande para o título principal */
-    color: #333; /* Cor do texto */
-    margin-bottom: 20px; /* Espaçamento inferior */
-  }
-  
-  /* Estilos para os parágrafos p */
-  p {
-    font-size: 1.1rem; /* Tamanho do texto */
-    line-height: 1.6; /* Altura da linha para melhor legibilidade */
-    color: #666; /* Cor do texto */
-    margin-bottom: 15px; /* Espaçamento inferior */
   }
   
   /* Estilos para o contêiner das seções de localização */

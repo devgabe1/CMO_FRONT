@@ -1,7 +1,7 @@
 /* locationPage.css */
 
 /* Estilos para centralizar o conteúdo */
-.page-container {
+.page-containerContact {
     display: flex;
     flex-direction: column;
     align-items: center; /* Centraliza horizontalmente */
@@ -11,31 +11,20 @@
     box-sizing: border-box; /* Inclui padding e border no tamanho total */
   }
   
-  /* Estilos para o cabeçalho h1 */
-  h1 {
-    font-size: 2.5rem; /* Tamanho grande para o título principal */
-    color: #000000; /* Cor do texto */
-    margin-bottom: 1px; /* Espaçamento inferior */
-    font-family: 'SST';
-  }
-  
-  /* Estilos para os parágrafos p */
-  p {
-    font-size: 1.1rem; /* Tamanho do texto */
-    line-height: 1.6; /* Altura da linha para melhor legibilidade */
-    color: #666666; /* Cor do texto */
-    margin-bottom: 1px; /* Espaçamento inferior */
-    font-family: 'SST';
-    font-weight: bold;
-  }
-  
   /* Estilos adicionais para o formulário */
   form {
     width: 100%;
     max-width: 600px; /* Largura máxima do formulário */
     margin: 0 auto; /* Centraliza o formulário horizontalmente */
     font-family: 'SST';
-
   }
   
-  
+  .page-image{
+    background-image: url('../../background/backgroundContact.png'); /* Caminho para a sua imagem */
+    background-size: cover; /* Faz com que a imagem cubra todo o fundo */
+    background-position: center; /* Centraliza a imagem no fundo */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    width: 100%; /* Garante que a largura do contêiner seja 100% */
+    height: 100vh; /* Defina uma altura mínima ou use altura dinâmica conforme o conteúdo */
+
+  }

@@ -1,6 +1,8 @@
 // src/pages/LocationPage.jsx
 import React from 'react';
+import '../../styles/global.css'
 import ChoiceBar from '../../components/choiceBar/choiceBar';
+
 
 function photoPage() {
   return (
