@@ -70,19 +70,23 @@ function verificarToken(req, res, next){
     res.status(504).send("Usuário inválido ou inexitente");
   });
 
+  //get servicos para o site
   app.get("/servicos", (req, res) => {
     conexao.query(
-        `SELECT * FROM servico where fl_servico IS TRUE`, (erro, linhas) =>{
-            if (erro) {
-                console.error("Problema ao selecionar servico", erro);
-                res.status(500).send("Problema ao selecionar servico");
-            } else {
-                console.log("Serviço selecionado com sucesso");
-                res.status(200).json(linhas);
-            }
-        });
-});
+        `SELECT * FROM servico where ativo = 1 ORDER BY ORDEM_APRESENTACAO`)
+        .then(result => res.json(result.recordset))
+        .catch(err => res.json(err));
+    });  
 
+    //get para o adm
+app.get("/admServicos/:id", (req, res) => {
+  let id_servico = req.params.id;
+  conexao.query(
+      `SELECT * FROM servico`)
+      .then(result => res.json(result.recordset))
+      .catch(err => res.json(err));
+  });
+      
 app.post("/servicos", (req, res) => {
   let tit = req.body.titulo;
   let desc = req.body.desc;
@@ -90,6 +94,7 @@ app.post("/servicos", (req, res) => {
   let img = req.body.img;
   let ordem = req.body.ordem;
   let ativo = '1';
+
 conexao.query(`exec SP_Ins_Servico 
 '${tit}', '${desc}', '${url}', 
 '${img}', ${ordem}, ${ativo}`, (erro, resultado) => {
@@ -104,35 +109,44 @@ conexao.query(`exec SP_Ins_Servico
 });
 
 app.put("/servicos", (req, res) => {
-  let { id, tit, desc, img, ordem, url, atv } = req.body;
+  
+  let id = req.body.id_servico;
+  let tit = req.body.titulo;
+  let desc = req.body.desc;
+  let url = req.body.url;
+  let img = req.body.img;
+  let ordem = req.body.ordem;
+  let ativo = req.body.ativo;
 
-  conexao.query(
-    `CALL sp_ed_servico(?, ?, ?, ?, ?, ?, ?, 'U')`, [id, tit, desc, img, ordem, url, atv], (erro, linhas)=>{
-      if (erro){
-        console.error("Problema ao editar servico", erro);
-        res.status(500).send("Problema ao editar servico");
-      }else{
-        console.log(linhas);
-        res.status(200).send("Servico alterado com sucesso");
-      }
-    });
-
+conexao.query(`exec SP_Upd_Servico 
+${ativo}, '${tit}', '${desc}', '${url}', 
+'${img}', ${ordem}, ${ativo}`, (erro, resultado) => {
+  if (erro) {
+    console.log(erro);
+    res.status(500).send('Problema ao atualizar serviço');
+  } else {
+    console.log(resultado);
+    res.status(200).send('Atualização inserida com sucesso');
+  }
+  });
 });
 
-app.delete("/servicos", (req, res)=>{
-  let id = req.body.id;
 
-  conexao.query(
-    `CALL sp_ed_servico(?, NULL, NULL, NULL, NULL, NULL, NULL, 'D')`, [id], (erro, linhas)=>{
-      if (erro){
-        console.error("Problema ao alterar servico", erro);
-        res.status(500).send("Problema ao alterar servico");
-      } else{
-        console.log(linhas);
-        res.status(200).send("Servico alterado com sucesso")
-      }
-    });
+app.delete("/servicos/:id", (req, res) => {
+  
+  let id = req.params.id
+conexao.query(`exec SP_Del_Servico 
+${id}`, (erro, resultado) => {
+  if (erro) {
+    console.log(erro);
+    res.status(500).send('Problema ao desativar serviço');
+  } else {
+    console.log(resultado);
+    res.status(200).send('Desativação inserida com sucesso');
+  }
+  });
 });
+
 
 app.get("/marcas", (req, res) => {
     html = 
