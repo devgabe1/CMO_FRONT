@@ -17,11 +17,15 @@ html, body {
   box-sizing: border-box; /* Inclui padding e border no tamanho total */
   min-height: 100vh; /* Garante que o contêiner ocupe a altura total da viewport */
   font-family: 'Arial', sans-serif; /* Fonte mais legível */
+}
+.page-backgroundRepair{
   background-image: url('../../background/backgroundRepair.png'); /* Caminho para a sua imagem */
   background-size: cover; /* Faz com que a imagem cubra todo o fundo */
   background-position: center; /* Centraliza a imagem no fundo */
   background-repeat: no-repeat; /* Evita a repetição da imagem */
   width: 100%; /* Garante que a largura do contêiner seja 100% */
+  height: 100vh; /* Defina uma altura mínima ou use altura dinâmica conforme o conteúdo */
+
 }
 
 /* Estilos para a lista de condições */

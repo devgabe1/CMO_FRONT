@@ -8,7 +8,7 @@ import Form from '../../components/form/form';
 
 function contactPage() {
   return (
-    <div className='page-image'>
+    <div className='page-backgroundContact'>
       <div className="main-content"> 
       <ChoiceBar />
       </div>

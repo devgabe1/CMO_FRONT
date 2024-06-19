@@ -5,6 +5,7 @@ import '../../styles/global.css'
 
 function RepairPage() {
   return (
+  <div className='page-backgroundRepair'>
     <div className="repair-page-container">
       <div className="main-content">
         <ChoiceBar />
@@ -45,6 +46,7 @@ function RepairPage() {
       </ul>
       <p>Dentro do prazo de 30 minutos, está inclusa a limpeza e higienização. No entanto, caso o aparelho esteja muito engordurado, com pó incrustado ou necessite de cuidados extras (polimento, remoção de manchas, limpeza dos dutos), o tempo de serviço poderá ser um pouco maior.</p>
       <p>Contamos com a sua compreensão.</p>
+    </div>
     </div>
   );
 }
