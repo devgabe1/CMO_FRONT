@@ -27,7 +27,7 @@ html, body {
 /* Estilos para o cabeçalho h1 */
 .repair-page-container h1 {
   font-size: 2.8rem; /* Tamanho grande para o título principal */
-  color: #fff; /* Cor do texto */
+  color: #000000; /* Cor do texto */
   margin-bottom: 20px; /* Espaçamento inferior */
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fonte mais elegante */
   font-weight: normal; /* Define o peso da fonte como normal */
@@ -37,7 +37,7 @@ html, body {
 .repair-page-container p {
   font-size: 1.2rem; /* Tamanho do texto */
   line-height: 1.8; /* Altura da linha para melhor legibilidade */
-  color: #fff; /* Cor do texto */
+  color: #000000; /* Cor do texto */
   margin-bottom: 20px; /* Espaçamento inferior */
   max-width: 800px; /* Limita a largura dos parágrafos */
   font-weight: normal; /* Define o peso da fonte como normal */
