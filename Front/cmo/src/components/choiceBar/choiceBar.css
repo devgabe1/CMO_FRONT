@@ -9,13 +9,27 @@
   height: 80px; /* Altura da barra laranja */
   color: #fff;
   background-color: #ff6200;
-  /* Remova ou ajuste a linha branca que simula a barra branca */
-
-  z-index: 1000;
   font-family: 'SST'; 
   overflow: hidden; /* Para esconder overflow do ::after */
   text-align: center; /* Centraliza horizontalmente */
   transition: transform 0.3s ease; /* Efeito de transição */
+  justify-content: space-between;
+}
+
+.logo {
+  width: 120px; /* Ajuste o tamanho conforme necessário */
+  height: 74px;
+  margin-right: 0px; /* Espaçamento entre o logo e os itens de menu */
+  margin-left: 50px;
+  margin-top: 3px;
+}
+
+.choice-items {
+  display: flex;
+  justify-content: center; /* Centraliza os itens do menu horizontalmente */
+  flex-grow: 1; /* Permite que o contêiner cresça para ocupar espaço */
+  margin-left: -120px; /* Compensa a largura da logo para centralizar itens */
+  margin-right: 50px;
 }
 
 .choice-item {
@@ -58,13 +72,27 @@
 }
 
 /* Media query para telas menores */
-@media (max-width: 850px) {
+@media (max-width: 1240px) {
   .choice-item {
     display: none;
   }
 
   .menu-icon {
     display: block;
+  }
+}
+@media (max-width: 1240px) {
+  .choice-items {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .logo {
+    margin-left: auto; /* Remove o espaço à esquerda */
+    margin-right: auto; /* Centraliza a logo horizontalmente */
   }
 }
 
@@ -111,3 +139,4 @@
 .main-content {
   padding-top: 80px; /* Ajuste este valor conforme a altura da sua ChoiceBar */
 }
+

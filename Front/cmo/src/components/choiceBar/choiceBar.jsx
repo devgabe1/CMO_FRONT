@@ -21,19 +21,23 @@ function ChoiceBar() {
   return (
     <div>
       <div className="choice-bar">
+        <img src="../../../logoBranca.png" alt="Logo" className="logo" />
+        <div className="choice-items">
+          {options.map((option, index) => (
+            <Link key={index} to={option.path} className="choice-item">
+              {option.label}
+            </Link>
+          ))}
+        </div>
         <span className="menu-icon" onClick={toggleSidebar}>
           &#9776;
         </span>
-        {options.map((option, index) => (
-          <Link key={index} to={option.path} className="choice-item">
-            {option.label}
-          </Link>
-        ))}
       </div>
       <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <a href="#" className="close-btn" onClick={toggleSidebar}>
           &times;
         </a>
+        <img src="../../../logoCmo.png" alt="Logo" className="logo" />
         {options.map((option, index) => (
           <Link key={index} to={option.path} onClick={toggleSidebar}>
             {option.label}
