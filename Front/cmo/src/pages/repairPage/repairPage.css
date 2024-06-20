@@ -19,24 +19,15 @@ html, body {
   font-family: 'Arial', sans-serif; /* Fonte mais legível */
 }
 
-/* Estilos para o cabeçalho h1 */
-.repair-page-container h1 {
-  font-size: 2.8rem; /* Tamanho grande para o título principal */
-  color: #000000; /* Cor do texto */
-  margin-bottom: 20px; /* Espaçamento inferior */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fonte mais elegante */
-  font-weight: normal; /* Define o peso da fonte como normal */
+.page-backgroundRepair{
+  background-image: url('../../background/backgroundRepair.png'); /* Caminho para a sua imagem */
+  background-size: cover; /* Faz com que a imagem cubra todo o fundo */
+  background-position: center; /* Centraliza a imagem no fundo */
+  background-repeat: no-repeat; /* Evita a repetição da imagem */
+  width: 100%; /* Garante que a largura do contêiner seja 100% */
+  min-height: 100vh; /* Garante que a altura mínima seja a altura da viewport */
 }
 
-/* Estilos para os parágrafos p */
-.repair-page-container p {
-  font-size: 1.2rem; /* Tamanho do texto */
-  line-height: 1.8; /* Altura da linha para melhor legibilidade */
-  color: #000000; /* Cor do texto */
-  margin-bottom: 20px; /* Espaçamento inferior */
-  max-width: 800px; /* Limita a largura dos parágrafos */
-  font-weight: normal; /* Define o peso da fonte como normal */
-}
 
 /* Estilos para a lista de condições */
 .repair-list {

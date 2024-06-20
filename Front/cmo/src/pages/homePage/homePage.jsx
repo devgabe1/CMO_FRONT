@@ -8,11 +8,10 @@ import './homePage.css'
 const HomePage = () => {
   return (
     <div className='page-backgroundHome'>
-    <div className="home-page">
+    <div className="home-page-container">
       <div className="main-content"> 
       <ChoiceBar />
       </div>
-      <Carousel />
       <div className="home-content">
         <h1>Bem-vindo à Página Inicial</h1>
         <p>Conteúdo da sua página inicial aqui...</p>

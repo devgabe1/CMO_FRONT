@@ -101,6 +101,7 @@ function ServicePage() {
   ];
 
   return (
+    <div className='page-backgroundService'>
     <div className="service-page-container">
       <div className="main-content"> 
       <ChoiceBar />
@@ -130,6 +131,7 @@ function ServicePage() {
           service={selectedService}
         />
       )}
+    </div>
     </div>
   );
 }
