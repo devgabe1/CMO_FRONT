@@ -2,7 +2,7 @@
   h1 {
     font-size: 2.5rem; /* Tamanho grande para o título principal */
     color: #000000; /* Cor do texto */
-    margin-bottom: 1px; /* Espaçamento inferior */
+    margin-bottom: 15px; /* Espaçamento inferior */
     margin-top: 15px;
     font-family: 'SST';
     
@@ -14,6 +14,16 @@
     line-height: 1.6; /* Altura da linha para melhor legibilidade */
     color: #666666; /* Cor do texto */
     margin-bottom: 1px; /* Espaçamento inferior */
+    font-family: 'SST';
+    font-weight: bold;
+    margin-top: 1px;
+  }
+
+  h3 {
+    font-size: 1.4rem; /* Tamanho do texto */
+    color: #000000; /* Cor do texto */
+    margin-bottom: 15px; /* Espaçamento inferior */
+    margin-top: 15px;
     font-family: 'SST';
     font-weight: bold;
   }

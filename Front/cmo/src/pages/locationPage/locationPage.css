@@ -37,8 +37,9 @@
   /* Estilos para o cabeçalho h2 */
   .location-section h2 {
     font-size: 2rem; /* Tamanho do título das seções */
-    color: #444; /* Cor do texto */
-    margin-bottom: 10px; /* Espaçamento inferior */
+    margin-bottom: 5px; /* Espaçamento inferior */
+    color: #000000; /* Cor do texto */
+    font-family: 'SST';
   }
   
   /* Estilos para o contêiner do mapa */

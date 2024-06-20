@@ -17,8 +17,8 @@ function ServicePage() {
     {
       name: "Conserto de Microondas",
       shortDescription: [
-        "Consertamos o seu forno em 30 minutos,",
-        "Serviço com garantia"
+        "Consertamos o seu forno em 30 minutos!",
+        "Serviço com garantia."
       ],
       fullDescription: [
         "Consertamos o seu forno em 30 minutos.",
@@ -31,8 +31,8 @@ function ServicePage() {
     {
       name: "Conserto de Forno Elétrico",
       shortDescription: [
-        "Consertamos seu forno em 4 horas.",
-        "Reformamos.",
+        "Consertamos seu forno em 4 horas!",
+        "Realizamos reformas!",
         "Serviço com garantia."
       ],
       fullDescription: [
@@ -46,12 +46,11 @@ function ServicePage() {
     {
       name: "Reforma de Microondas",
       shortDescription: [
-        "Se o seu aparelho é antigo e tem ferrugem, vale a pena reformar.",
-        "Aparelhos antigos são mais duráveis."
+        "Se o seu aparelho é antigo e tem ferrugem, vamos reformar!"
       ],
       fullDescription: [
-        "Se o seu aparelho é antigo e tem ferrugem, vale a pena reformar.",
-        "Aparelhos antigos são mais duráveis.",
+        "Se o seu aparelho é antigo e tem ferrugem, vale a pena reformar!",
+        "Aparelhos antigos são mais duráveis!",
         "Reformamos e deixamos como novo.",
         "Garantia de 1 ano para reformas."
       ],
@@ -60,12 +59,10 @@ function ServicePage() {
     {
       name: "Acessórios para Microondas",
       shortDescription: [
-        "Temos pratos, roldanas, cruzetas e outros acessórios para forno de microondas.",
-        "Traga a marca e modelo de seu microondas."
+        "Temos pratos, roldanas, cruzetas e outros acessórios originais!"
       ],
       fullDescription: [
-        "Temos pratos, roldanas, cruzetas e outros acessórios para forno de microondas.",
-        "Traga a marca e modelo de seu microondas.",
+        "Temos pratos, roldanas, cruzetas e outros acessórios para fornos e microondas.",
         "Acessórios originais e compatíveis.",
         "Garantia de 6 meses em todos os acessórios."
       ],
@@ -74,27 +71,27 @@ function ServicePage() {
     {
       name: "Microondas Novos e Usados",
       shortDescription: [
-        "Temos microondas a pronta entrega, diversas marcas e modelos direto da fábrica 110v e 220v.",
-        "Também locamos microondas."
+        "Temos microondas a pronta entrega, de diversas marcas e modelos!",
+        "Também locamos microondas!"
       ],
       fullDescription: [
         "Temos microondas a pronta entrega, diversas marcas e modelos direto da fábrica 110v e 220v.",
         "Modelos novos e seminovos.",
         "Garantia de até 2 anos.",
-        "Serviço de locação com preços competitivos."
+        "Serviço de locação com preços acessíveis."
       ],
       imageUrl: newUsedMicrowave
     },
     {
       name: "Busca e Entrega",
       shortDescription: [
-        "Oferecemos serviços de busca e entrega para sua comodidade."
+        "Oferecemos serviços de busca e entrega para sua comodidade!"
       ],
       fullDescription: [
         "Oferecemos serviços de busca e entrega para sua comodidade.",
         "Retiramos e entregamos seu aparelho em sua casa.",
         "Serviço rápido e seguro.",
-        "Atendemos toda a cidade e região."
+        "Atendemos apenas em Curitiba."
       ],
       imageUrl: deliveryService
     }

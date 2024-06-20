@@ -73,6 +73,7 @@
     }
   
     .modal-description {
+      margin-top: 30px;
       width: 60%; /* Ajuste conforme necessário */
     }
   }

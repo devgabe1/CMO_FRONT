@@ -12,7 +12,7 @@ const Modal = ({ isOpen, onClose, service }) => {
         <div className="modal-body">
           <img src={service.imageUrl} alt={service.name} className="modal-image"/>
           <div className="modal-description">
-            <h2>{service.name}</h2>
+            <h3>{service.name}</h3>
             {service.fullDescription.map((line, index) => (
               <p key={index}>{line}</p>
             ))}
