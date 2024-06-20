@@ -4,17 +4,17 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: rgba(255, 255, 255, 0.9); 
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   }
   
   .formulario-container h2 {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
   
   .campo-formulario {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
   
   .campo-formulario label {
@@ -31,12 +31,22 @@
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    transition: background-color 0.3s, border-color 0.3s; /* Transição suave para o foco */
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  textarea:focus {
+    background-color: #e6ffff; /* Cor de fundo quando o campo está em foco */
+    border-color: #000066; /* Cor da borda quando o campo está em foco */
+    outline: none; /* Remove o contorno padrão que os navegadores aplicam */
   }
   
   button {
-    padding: 10px 20px;
+    padding: 10px 30px;
     font-size: 16px;
-    background-color: #007bff;
+    background-color: #0056b3;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -44,7 +54,7 @@
   }
   
   button:hover {
-    background-color: #0056b3;
+    background-color: #000066;
   }
   
   .campo-formulario input,
@@ -52,7 +62,7 @@
     width: 100%;
     padding: 8px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.9); 
     border-radius: 4px;
   }
   

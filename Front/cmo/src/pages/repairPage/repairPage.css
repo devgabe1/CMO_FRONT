@@ -17,11 +17,6 @@ html, body {
   box-sizing: border-box; /* Inclui padding e border no tamanho total */
   min-height: 100vh; /* Garante que o contêiner ocupe a altura total da viewport */
   font-family: 'Arial', sans-serif; /* Fonte mais legível */
-  background-image: url('../../background/backgroundRepair.png'); /* Caminho para a sua imagem */
-  background-size: cover; /* Faz com que a imagem cubra todo o fundo */
-  background-position: center; /* Centraliza a imagem no fundo */
-  background-repeat: no-repeat; /* Evita a repetição da imagem */
-  width: 100%; /* Garante que a largura do contêiner seja 100% */
 }
 
 /* Estilos para o cabeçalho h1 */
@@ -55,7 +50,7 @@ html, body {
 
 /* Estilos para os itens da lista */
 .repair-list li {
-  background-color: rgba(255, 255, 255, 0.8); /* Cor de fundo dos itens com transparência */
+  background-color: rgba(255, 255, 255, 0.9); /* Cor de fundo dos itens com transparência */
   margin: 10px 0; /* Espaçamento vertical entre os itens */
   padding: 15px; /* Espaçamento interno dos itens */
   border-radius: 5px; /* Bordas arredondadas */

@@ -1,10 +1,12 @@
 import React from 'react';
 import './locationPage.css'; // Importa o arquivo de estilos CSS
+import '../../styles/global.css'
 import ChoiceBar from '../../components/choiceBar/choiceBar';
 
 function LocationPage() {
   return (
-    <div className="page-container">
+    <div className='page-backgroundLocation'>
+    <div className="page-containerLocation">
       <div className="main-content"> 
         <ChoiceBar />
       </div>
@@ -43,6 +45,7 @@ function LocationPage() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
