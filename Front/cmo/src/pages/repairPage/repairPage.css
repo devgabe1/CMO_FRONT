@@ -61,7 +61,7 @@ html, body {
   
 }
 
-p1 {
+.warning {
   font-size: 1.3rem; /* Tamanho do texto */
   line-height: 1.6; /* Altura da linha para melhor legibilidade */
   color: #ff0000; /* Cor do texto */

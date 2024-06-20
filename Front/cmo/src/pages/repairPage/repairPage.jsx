@@ -44,8 +44,8 @@ function RepairPage() {
           <span className="note">Micro-ondas de Convecção, Fornos Elétricos Fischer Lumen, Fornos Elétricos de Embutir 60L de qualquer marca, máquinas de pão ou qualquer outro aparelho que o técnico julgar necessário mais tempo para avaliação não serão avaliados na hora.</span>
         </li>
       </ul>
-      <p1>Dentro do prazo de 30 minutos, está inclusa a limpeza e higienização. No entanto, caso o aparelho esteja muito engordurado, com pó incrustado ou necessite de cuidados extras (polimento, remoção de manchas, limpeza dos dutos), o tempo de serviço poderá ser um pouco maior.</p1>
-      <p1>Contamos com a sua compreensão.</p1>
+      <span className='warning'>Dentro do prazo de 30 minutos, está inclusa a limpeza e higienização. No entanto, caso o aparelho esteja muito engordurado, com pó incrustado ou necessite de cuidados extras (polimento, remoção de manchas, limpeza dos dutos), o tempo de serviço poderá ser um pouco maior.</span>
+      <span className='warning'>Contamos com a sua compreensão.</span>
     </div>
     </div>
   );
