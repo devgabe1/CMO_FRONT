@@ -1,41 +1,54 @@
 /* deliveryPage.css */
 
+/* Estilos para o fundo */
+.page-backgroundDelivery {
+  background-image: url('../../background/backgroundDelivery.png'); /* Caminho para a sua imagem */
+  background-size: cover; /* Faz com que a imagem cubra todo o fundo */
+  background-position: center; /* Centraliza a imagem no fundo */
+  background-repeat: no-repeat; /* Evita a repetição da imagem */
+  width: 100%; /* Garante que a largura do contêiner seja 100% */
+  min-height: 100vh; /* Garante que a altura mínima seja a altura da viewport */
+}
+
 /* Estilos para centralizar o conteúdo */
 .page-containerDelivery {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza horizontalmente */
-    justify-content: center; /* Centraliza verticalmente */
-    text-align: center; /* Centraliza o texto */
-    padding: 20px; /* Espaçamento interno */
-    box-sizing: border-box; /* Inclui padding e border no tamanho total */
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza horizontalmente */
+  text-align: center; /* Centraliza o texto */
+  padding: 20px; /* Espaçamento interno */
+  box-sizing: border-box; /* Inclui padding e border no tamanho total */
+}
 
-  .page-backgroundDelivery{
-    background-image: url('../../background/backgroundDelivery.png'); /* Caminho para a sua imagem */
-    background-size: cover; /* Faz com que a imagem cubra todo o fundo */
-    background-position: center; /* Centraliza a imagem no fundo */
-    background-repeat: no-repeat; /* Evita a repetição da imagem */
-    width: 100%; /* Garante que a largura do contêiner seja 100% */
-    height: 100vh; /* Defina uma altura mínima ou use altura dinâmica conforme o conteúdo */
+/* Estilos para o botão do WhatsApp */
+.whatsapp-button {
+  background-color: #25d366; /* Cor de fundo do botão do WhatsApp */
+  color: white; /* Cor do texto do botão */
+  border: none; /* Remove bordas */
+  padding: 15px 30px; /* Espaçamento interno */
+  font-size: 1.2rem; /* Tamanho do texto do botão */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+  transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+  margin-top: 15px;
+  display: inline-block; /* Garante que o botão não se expanda para preencher o contêiner */
+  text-align: center; /* Centraliza o texto dentro do botão */
+  width: auto; /* Garante que a largura do botão seja automática */
+}
 
-  }
-  
-  /* Estilos para o botão do WhatsApp */
+/* Estilos para o botão do WhatsApp ao passar o mouse */
+.whatsapp-button:hover {
+  background-color: #1da14e; /* Cor de fundo ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
   .whatsapp-button {
-    background-color: #25d366; /* Cor de fundo do botão do WhatsApp */
-    color: white; /* Cor do texto do botão */
-    border: none; /* Remove bordas */
-    padding: 15px 30px; /* Espaçamento interno */
-    font-size: 1.2rem; /* Tamanho do texto do botão */
-    border-radius: 5px; /* Bordas arredondadas */
-    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
-    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
-    margin-top: 15px;
+      font-size: 1rem; /* Ajusta o tamanho do texto do botão para telas menores */
+      padding: 10px 20px; /* Ajusta o padding do botão para telas menores */
   }
-  
-  /* Estilos para o botão do WhatsApp ao passar o mouse */
-  .whatsapp-button:hover {
-    background-color: #1da14e; /* Cor de fundo ao passar o mouse */
+
+  .page-containerDelivery {
+      padding: 10px; /* Ajusta o padding para telas menores */
   }
-  
+}
