@@ -78,7 +78,7 @@ function verificarToken(req, res, next){
         .catch(err => res.json(err));
     });  
 
-    //get para o adm
+    //get servicos para o adm
 app.get("/admServicos/:id", (req, res) => {
   let id_servico = req.params.id;
   conexao.query(
@@ -97,15 +97,9 @@ app.post("/servicos", (req, res) => {
 
 conexao.query(`exec SP_Ins_Servico 
 '${tit}', '${desc}', '${url}', 
-'${img}', ${ordem}, ${ativo}`, (erro, resultado) => {
-  if (erro) {
-    console.log(erro);
-    res.status(500).send('Problema ao inserir serviço');
-  } else {
-    console.log(resultado);
-    res.status(200).send('Serviço inserido com sucesso');
-  }
-  });
+'${img}', ${ordem}, ${ativo}`)
+.then(result => res.json(result.recordset))
+.catch(err => res.json(err));
 });
 
 app.put("/servicos", (req, res) => {
@@ -120,15 +114,9 @@ app.put("/servicos", (req, res) => {
 
 conexao.query(`exec SP_Upd_Servico 
 ${ativo}, '${tit}', '${desc}', '${url}', 
-'${img}', ${ordem}, ${ativo}`, (erro, resultado) => {
-  if (erro) {
-    console.log(erro);
-    res.status(500).send('Problema ao atualizar serviço');
-  } else {
-    console.log(resultado);
-    res.status(200).send('Atualização inserida com sucesso');
-  }
-  });
+'${img}', ${ordem}, ${ativo}`)      
+  .then(result => res.json(result.recordset))
+  .catch(err => res.json(err));
 });
 
 
@@ -136,100 +124,72 @@ app.delete("/servicos/:id", (req, res) => {
   
   let id = req.params.id
 conexao.query(`exec SP_Del_Servico 
-${id}`, (erro, resultado) => {
-  if (erro) {
-    console.log(erro);
-    res.status(500).send('Problema ao desativar serviço');
-  } else {
-    console.log(resultado);
-    res.status(200).send('Desativação inserida com sucesso');
-  }
+${id}`) 
+      .then(result => res.json(result.recordset))
+      .catch(err => res.json(err));
   });
+
+    // get marcas para o site
+  app.get("/marcas", (req, res) => {
+    conexao.query(
+        `SELECT * FROM marca where ativo = 1 ORDER BY ORDEM_APRESENTACAO`)
+        .then(result => res.json(result.recordset))
+        .catch(err => res.json(err));
+    });  
+
+      //get marcas para o adm
+app.get("/admMarcas/:id", (req, res) => {
+  let id_servico = req.params.id;
+  conexao.query(
+      `SELECT * FROM marca`)
+      .then(result => res.json(result.recordset))
+      .catch(err => res.json(err));
+  });
+
+  app.post("/marcas", (req, res) => {
+  let {desc, logo, url} = req.body;
+  
+  conexao.query(`exec SP_Ins_Marca 
+  '${desc}', '${logo}', 
+  '${url}'`)
+    .then(result => res.json(result.recordset))
+    .catch(err => res.json(err));
+});
+  
+  app.put("/marcas", (req, res) => {
+  let { id, desc, logo, url, atv } = req.body;
+  
+  conexao.query(`exec SP_Upd_Marcas
+  ${id}, ${desc}', '${logo}', 
+  '${url}', ${atv}`)
+  .then(result => res.json(result.recordset))
+  .catch(err => res.json(err));
+});
+  
+
+  app.delete("/marcas/:id", (req, res) => {
+    let id = req.params.id
+  conexao.query(`exec SP_Del_Marcas 
+  ${id}`)
+  .then(result => res.json(result.recordset))
+  .catch(err => res.json(err));
 });
 
-
-app.get("/marcas", (req, res) => {
-    html = 
-    `<html>
-       <head>
-         <title>Projeto CMO</title>
-       </head>
-       <body>
-         <h1>Casa do Micro-Ondas</h1>
-         <p>Este é o projeto do novo site da Casa do Micro-Ondas.</p>
-       </body>
-    </html>`;
+  //get modelos para o site
+app.get("/modelos", (req, res) => {
     conexao.query(
-      `SELECT * FROM marca WHERE fl_marca IS TRUE;`, (erro, linhas) =>{
-        if (erro){
-          console.error("Erro ao selecionar marcas", erro);
-          res.status(500).send("Erro ao selecionar marcas");
-        } else{
-          console.log("Marcas selecionadas com sucesso");
-          res.status(200).json(linhas);
-        }
-      });
-      //lista = html
-  });
+        `SELECT * FROM modelos where ativo = 1 ORDER BY ORDEM_APRESENTACAO`)
+        .then(result => res.json(result.recordset))
+        .catch(err => res.json(err));
+    });  
 
-  app.post("/marcas", (req, res) =>{
-    let { desc, url, logo, atv} = req.body;
-
-    conexao.query(
-      `CALL sp_ins_marca ( ?, ?, ?, ?)`, [ desc, url, logo, atv], (erro, linhas) =>{
-        if (erro){
-          console.error("Erro ao inserir marca", erro)
-          res.status(500).send("Erro ao inserir marca");
-        } else{
-          console.log("Marca inserida com sucesso");
-          res.status(200).json(linhas);
-        }
-      });
-  });
-
-  app.put("/marcas", (req, res) =>{
-    let { id, desc, logo, url, atv } = req.body;
-
-    conexao.query(
-      `CALL sp_ed_marca(?, ?, ?, ?, ?, 'U')`, [id, desc, logo, url, atv], (erro, linhas)=>{
-        if (erro){
-          console.error("Erro ao atualizar marca", erro);
-          res.status(500).send("Erro ao atualizar marca.");
-        } else{
-          console.log("Marca atualizada com sucesso.");
-          res.status(200).json(linhas);
-        }
-      }
-    )
-  });
-
-  app.delete("/marcas", (req, res) =>{
-    let id = req.body.id;
-    conexao.query(
-    `CALL sp_ed_marca(?, NULL, NULL, NULL, NULL, 'D')`, [id], (erro, linhas)=>{
-      if (erro){
-        console.error("Erro ao desativar marca", erro);
-        res.status(500).send("Erro ao desativar marca.");
-      } else{
-        console.log("Marca atualizada com sucesso", linhas);
-        res.status(200).json(linhas);
-      }
-    }
-  )
-  });
-
-  app.get("/modelos", (req, res) => {
-
-    conexao.query(
-      `SELECT * FROM modelo;`, (erro, linhas) =>{
-        if (erro){
-          console.error("Erro ao selecionar modelos", erro);
-          res.status(500).send("Erro ao selecionar modelos");
-        } else{
-          console.log("Modelos selecionadas com sucesso");
-          res.status(200).json(linhas);
-        }
-      });
+    //get modelos para o adm
+app.get("/admModelos/:id", (req, res) => {
+  let id_servico = req.params.id;
+  conexao.query(
+      `SELECT * FROM servico`)
+      .then(result => res.json(result.recordset))
+      .catch(err => res.json(err));
   });
 
   app.post("/modelos", (req, res) =>{
@@ -278,18 +238,21 @@ app.get("/marcas", (req, res) => {
   )
   });
 
-  app.get("/produtos", (req, res) => {
-
+  //get produtos para o site
+app.get("/produtos", (req, res) => {
     conexao.query(
-      `SELECT * FROM produto;`, (erro, linhas) =>{
-        if (erro){
-          console.error("Erro ao selecionar produtos", erro);
-          res.status(500).send("Erro ao selecionar produtos");
-        } else{
-          console.log("Produtos selecionadas com sucesso");
-          res.status(200).json(linhas);
-        }
-      });
+        `SELECT * FROM produtos where ativo = 1 ORDER BY ORDEM_APRESENTACAO`)
+        .then(result => res.json(result.recordset))
+        .catch(err => res.json(err));
+    });  
+
+    //get produtos para o adm
+app.get("/admProdutos/:id", (req, res) => {
+  let id_servico = req.params.id;
+  conexao.query(
+      `SELECT * FROM produtos`)
+      .then(result => res.json(result.recordset))
+      .catch(err => res.json(err));
   });
 
   app.post("/produtos", (req, res) =>{
@@ -340,20 +303,23 @@ app.get("/marcas", (req, res) => {
     )
   });
 
+    //get servicos para o site
   app.get("/tipoProduto", (req, res) => {
-
+      conexao.query(
+          `SELECT * FROM tipoProduto where ativo = 1 ORDER BY ORDEM_APRESENTACAO`)
+          .then(result => res.json(result.recordset))
+          .catch(err => res.json(err));
+      });  
+  
+      //get para o adm
+  app.get("/admtipoProduto/:id", (req, res) => {
+    let id_servico = req.params.id;
     conexao.query(
-      `SELECT * FROM tipoProduto;`, (erro, linhas) =>{
-        if (erro){
-          console.error("Erro ao selecionar tipos de produto", erro);
-          res.status(500).send("Erro ao selecionar tipos de produtos");
-        } else{
-          console.log("Tipos de Produto selecionados com sucesso");
-          res.status(200).json(linhas);
-        }
-      });
-  });
-
+        `SELECT * FROM tipoProduto`)
+        .then(result => res.json(result.recordset))
+        .catch(err => res.json(err));
+    });
+    
   app.post("/tipoProduto", (req, res) =>{
     let { desc} = req.body;
 
