@@ -8,6 +8,8 @@
   background-color: rgba(255, 255, 255, 0.9); 
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  font-family: 'SST';
+  font-weight: bold;
 }
 
 .formulario-container h2 {
@@ -69,6 +71,7 @@ button:hover {
   background-color: rgba(255, 255, 255, 0.9); 
   border-radius: 4px;
   box-sizing: border-box; /* Inclui padding e border no tamanho total */
+  font-family: 'Arial';
 }
 
 .campo-formulario.com-erro input,

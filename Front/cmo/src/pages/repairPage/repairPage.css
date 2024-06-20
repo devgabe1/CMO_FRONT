@@ -48,14 +48,24 @@ html, body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
   font-size: 1.1rem; /* Tamanho do texto dos itens */
   line-height: 1.6; /* Altura da linha para melhor legibilidade */
-  font-weight: normal; /* Define o peso da fonte como normal */
+  font-weight: bold; /* Define o peso da fonte como normal */
 }
 
 /* Estilos para as notas adicionais */
 .note {
   display: block;
-  font-size: 0.9rem; /* Tamanho menor para as notas */
+  font-size: 1rem; /* Tamanho menor para as notas */
   color: #333; /* Cor das notas */
   margin-top: 5px; /* Espaçamento superior das notas */
   font-weight: normal; /* Define o peso da fonte como normal */
+  
+}
+
+p1 {
+  font-size: 1.3rem; /* Tamanho do texto */
+  line-height: 1.6; /* Altura da linha para melhor legibilidade */
+  color: #ff0000; /* Cor do texto */
+  margin-bottom: 1px; /* Espaçamento inferior */
+  font-family: 'SST';
+  font-weight: bold;
 }
