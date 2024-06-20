@@ -32,7 +32,7 @@ function LocationPage() {
 
         <div className="location-section">
           <h2>Loja 2</h2>
-          <p>R. Saturnino Miranda, 84 - Santa Felicidade</p>
+          <span className='adress'>R. Saturnino Miranda, 84 - Santa Felicidade</span>
           <div className="map-container">
             <iframe
               title="Localização Loja 2"

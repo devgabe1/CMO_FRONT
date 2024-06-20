@@ -32,6 +32,9 @@
   .location-section {
     margin: 20px; /* Espaçamento ao redor das seções */
     flex: 1;
+    width: 100%; /* Garante que o contêiner ocupe toda a largura disponível */
+    max-width: 600px; /* Define uma largura máxima para telas maiores */
+    margin: 0 auto;
   }
   
   /* Estilos para o cabeçalho h2 */
@@ -40,11 +43,29 @@
     margin-bottom: 5px; /* Espaçamento inferior */
     color: #000000; /* Cor do texto */
     font-family: 'SST';
+    
   }
   
   /* Estilos para o contêiner do mapa */
   .map-container {
     margin-top: 10px; /* Espaçamento superior */
+    width: 90%; /* Largura de 90% da tela */
+    max-width: 800px; /* Largura máxima */
+    margin-left: auto; /* Centraliza horizontalmente */
+    margin-right: auto; /* Centraliza horizontalmente */
+    padding: 10px; /* Espaçamento interno */
+    background-color: #f9f9f9; /* Cor de fundo para visualização */
+    border: 1px solid #ccc; /* Borda para visualização */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra para destaque */
+    overflow: hidden; /* Garante que o iframe não vaze para fora do contêiner */
+  }
+  
+  .map-container iframe {
+    width: 100%; /* Garante que o iframe ocupe toda a largura do contêiner */
+    height: 450px; /* Ajusta a altura do iframe */
+    border: 0; /* Remove a borda do iframe */
+    border-radius: 8px; /* Mantém as bordas arredondadas */
   }
   
   /* Media query para telas grandes */
@@ -57,5 +78,15 @@
     .location-section {
       margin: 20px; /* Espaçamento ao redor das seções */
     }
+  }
+  
+  .adress {
+    font-size: 1.3rem; /* Tamanho do texto */
+    line-height: 1.6; /* Altura da linha para melhor legibilidade */
+    color: #666666; /* Cor do texto */
+    margin-bottom: 1px; /* Espaçamento inferior */
+    font-family: 'SST';
+    font-weight: bold;
+
   }
   
