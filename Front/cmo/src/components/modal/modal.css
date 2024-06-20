@@ -32,7 +32,11 @@
     font-weight: bold; /* Deixa o X em negrito */
     color: black; /* Define a cor preta */
     cursor: pointer;
+    text-align: center; /* Centraliza o texto dentro do botão */
+    width: auto; /* Garante que a largura do botão seja automática */
+    padding: 2px 30px;
   }
+  
   
   .close-button:hover {
     color: #ff6200;
