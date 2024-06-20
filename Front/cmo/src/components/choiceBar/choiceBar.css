@@ -93,6 +93,8 @@
   .logo {
     margin-left: auto; /* Remove o espaço à esquerda */
     margin-right: auto; /* Centraliza a logo horizontalmente */
+    justify-content: center; /* Centraliza os itens do menu horizontalmente */
+
   }
 }
 
