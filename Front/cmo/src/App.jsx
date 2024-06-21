@@ -1,26 +1,14 @@
 // src/App.jsx
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
-import HomePage from './pages/homePage/homePage';
-import LocationPage from './pages/locationPage/LocationPage';
-import ServicePage from './pages/servicePage/servicePage';
-import DeliveryPage from './pages/deliveryPage/deliveryPage';
-import RepairPage from './pages/repairPage/repairPage';
-import Contact from './pages/contactPage/contactPage';
+import AppRoutes from './routes';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/localizacao" element={<LocationPage />} />
-          <Route path="/servicos" element={<ServicePage />} />
-          <Route path="/busca-e-entrega" element={<DeliveryPage />} />
-          <Route path="/conserto" element={<RepairPage />} />
-          <Route path="/contato" element={<Contact />} />
-        </Routes>
+        <AppRoutes />
       </div>
     </Router>
   );
