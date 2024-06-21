@@ -16,19 +16,25 @@ function ChoiceBar() {
     { label: 'Busca e Entrega', path: '/busca-e-entrega' },
     { label: 'Conserto em 30 Minutos', path: '/conserto' },
     { label: 'Contato', path: '/contato' },
+    { label: 'Login', path: '/login' } 
   ];
 
   return (
     <div>
       <div className="choice-bar">
-        <img src="../../../logoBranca.png" alt="Logo" className="logo" />
+        <Link to="/" className="logo-link">
+          <img src="../../../logoBranca.png" alt="Logo" className="logo" />
+        </Link>
         <div className="choice-items">
-          {options.map((option, index) => (
+        {options.slice(0, -1).map((option, index) => ( // Exclui login do dropdown
             <Link key={index} to={option.path} className="choice-item">
               {option.label}
             </Link>
           ))}
         </div>
+              <Link to="/login" className="login-icon">
+          <img src="../../../logoLogin.png" alt="Login" className="login-logo" />
+        </Link>
         <div className={`menu-icon ${dropdownOpen ? 'open' : ''}`} onClick={toggleDropdown}>
           <span></span>
           <span></span>

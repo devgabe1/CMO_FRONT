@@ -20,16 +20,37 @@
   width: 120px; /* Ajuste o tamanho conforme necessário */
   height: 74px;
   margin-right: 0px; /* Espaçamento entre o logo e os itens de menu */
-  margin-left: 50px;
+  margin-left: 25px;
   margin-top: 3px;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none; /* Remove o sublinhado do link */
+  margin-right: 0px; /* Espaçamento entre o logo e os itens de menu */
+  margin-left: 25px;
+  margin-top: 3px;
+  z-index: 2000;
+}
+
+.login-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.login-logo {
+  width: 80px; /* Mesmo tamanho da logo */
+  height: 50px;
 }
 
 .choice-items {
   display: flex;
   justify-content: center; /* Centraliza os itens do menu horizontalmente */
   flex-grow: 1; /* Permite que o contêiner cresça para ocupar espaço */
-  margin-left: -120px; /* Compensa a largura da logo para centralizar itens */
-  margin-right: 50px;
+  margin-left: -40px; /* Compensa a largura da logo para centralizar itens */
+  margin-right: 0px;
 }
 
 .choice-item {
@@ -65,8 +86,8 @@
   font-size: 30px;
   cursor: pointer;
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 30px;
+  right:20px;
   z-index: 1001;
   color: #ffffff;
   width: 30px;
@@ -139,6 +160,16 @@
     margin-right: auto; /* Centraliza a logo horizontalmente */
     justify-content: center; /* Centraliza os itens do menu horizontalmente */
   }
+  .logo-link {
+    margin-left: auto; /* Remove o espaço à esquerda */
+    margin-right: auto; /* Centraliza a logo horizontalmente */
+    justify-content: center; /* Centraliza os itens do menu horizontalmente */
+  }
+  
+  .login-icon {
+    display: none; /* Esconde o ícone de login em telas menores */
+  }
+
 }
 .main-content {
   padding-top: 80px; /* Ajuste este valor conforme a altura da sua ChoiceBar */
