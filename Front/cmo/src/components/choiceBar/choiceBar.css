@@ -72,6 +72,7 @@
   width: 30px;
   height: 30px;
   transition: transform 0.3s ease;
+  
 }
 .menu-icon span {
   display: block;
@@ -84,6 +85,7 @@
   left: 0;
   transform: rotate(0deg);
   transition: .25s ease-in-out;
+  
 }
 
 .menu-icon span:nth-child(1) {
@@ -190,6 +192,7 @@
   color: #333;
   text-decoration: none;
   border-bottom: 1px solid #ddd;
+  font-family: 'SST';
 }
 
 .dropdown-item:hover {
