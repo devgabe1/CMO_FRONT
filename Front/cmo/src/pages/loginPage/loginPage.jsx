@@ -1,11 +1,10 @@
-// src/pages/homePage/HomePage.jsx
+// src/pages/homePage/LoginPage.jsx
 import React from 'react';
 import '../../styles/global.css'
-import Carousel from '../../components/carousel/carousel';
 import ChoiceBar from '../../components/choiceBar/choiceBar';
 
 
-const HomePage = () => {
+const LoginPage = () => {
   return (
     <div className='page-backgroundHome'>
     <div className="home-page-container">
@@ -13,12 +12,12 @@ const HomePage = () => {
       <ChoiceBar />
       </div>
       <div className="home-content">
-        <h1>Bem-vindo à Página Inicial</h1>
-        <p>Conteúdo da sua página inicial aqui...</p>
+        <h1>Bem-vindo à Página de login</h1>
+        <p>Conteúdo da sua página de login aqui...</p>
       </div>
     </div>
     </div>
   );
 };
 
-export default HomePage;
+export default LoginPage;
