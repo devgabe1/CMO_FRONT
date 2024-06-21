@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import './choiceBar.css';
 
 function ChoiceBar() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
   };
 
   const options = [
@@ -29,21 +29,19 @@ function ChoiceBar() {
             </Link>
           ))}
         </div>
-        <span className="menu-icon" onClick={toggleSidebar}>
+        <span className="menu-icon" onClick={toggleDropdown}>
           &#9776;
         </span>
       </div>
-      <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
-        <a href="#" className="close-btn" onClick={toggleSidebar}>
-          &times;
-        </a>
-        <img src="../../../logoCmo.png" alt="Logo" className="logo" />
-        {options.map((option, index) => (
-          <Link key={index} to={option.path} onClick={toggleSidebar}>
-            {option.label}
-          </Link>
-        ))}
-      </div>
+      {dropdownOpen && (
+        <div className="dropdown-menu">
+          {options.map((option, index) => (
+            <Link key={index} to={option.path} className="dropdown-item" onClick={toggleDropdown}>
+              {option.label}
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

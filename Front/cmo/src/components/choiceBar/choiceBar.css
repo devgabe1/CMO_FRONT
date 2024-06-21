@@ -98,46 +98,39 @@
   }
 }
 
-.sidebar {
-  height: 100%;
-  width: 0;
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
   position: fixed;
-  z-index: 1001;
-  top: 0;
-  left: 0;
-  background-color: #ffffff;
-  overflow-x: hidden;
-  transition: width 0.5s;
-  padding-top: 60px;
-  font-family: 'SST'; 
+  top: 80px; /* Posição logo abaixo da barra */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%; /* Ajuste conforme necessário */
+  background-color: #ffffff; /* Fundo branco */
+  z-index: 1000;
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+  overflow: hidden; /* Garante que os itens não ultrapassem as bordas arredondadas */
 }
 
-.sidebar.open {
-  width: 250px; /* Largura do menu lateral quando aberto */
-}
-
-.sidebar a {
-  padding: 10px 15px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #000000;
-  display: block;
-  transition: 0.3s;
+.dropdown-item {
+  padding: 15px;
+  text-align: center;
+  font-size: 19px; 
   font-weight: bold;
+  color: #333; /* Cor do texto */
+  text-decoration: none;
+  border-bottom: 1px solid #ddd; /* Borda inferior cinza clara */
 }
 
-.sidebar a:hover {
-  background-color: #ffffff;
+.dropdown-item:hover {
+  background-color: #f1f1f1; /* Fundo cinza claro ao passar o mouse */
 }
 
-.sidebar .close-btn {
-  position: absolute;
-  top: 20px;
-  right: 25px;
-  font-size: 36px;
-  cursor: pointer;
+/* Remove a borda do último item */
+.dropdown-item:last-child {
+  border-bottom: none;
 }
-
 .main-content {
   padding-top: 80px; /* Ajuste este valor conforme a altura da sua ChoiceBar */
 }
