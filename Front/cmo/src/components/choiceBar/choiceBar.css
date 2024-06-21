@@ -69,9 +69,39 @@
   right: 20px;
   z-index: 1001;
   color: #ffffff;
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
 }
 
-/* Media query para telas menores */
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  top: 50%;
+  left: 0;
+  transition: transform 0.3s ease, top 0.3s ease;
+}
+
+.menu-icon::before {
+  transform: translateY(-10px);
+}
+
+.menu-icon::after {
+  transform: translateY(10px);
+}
+
+.menu-icon.open::before {
+  transform: rotate(45deg) translateY(0);
+}
+
+.menu-icon.open::after {
+  transform: rotate(-45deg) translateY(0);
+}
+
 @media (max-width: 1240px) {
   .choice-item {
     display: none;
@@ -80,58 +110,76 @@
   .menu-icon {
     display: block;
   }
-}
-@media (max-width: 1240px) {
+
   .choice-items {
     display: none;
-  }
-
-  .menu-icon {
-    display: block;
   }
 
   .logo {
     margin-left: auto; /* Remove o espaço à esquerda */
     margin-right: auto; /* Centraliza a logo horizontalmente */
     justify-content: center; /* Centraliza os itens do menu horizontalmente */
-
   }
 }
+.main-content {
+  padding-top: 80px; /* Ajuste este valor conforme a altura da sua ChoiceBar */
+}
+
+
 
 .dropdown-menu {
   display: flex;
   flex-direction: column;
   position: fixed;
-  top: 80px; /* Posição logo abaixo da barra */
+  top: 80px;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%; /* Ajuste conforme necessário */
-  background-color: #ffffff; /* Fundo branco */
+  width: 90%;
+  background-color: #ffffff;
   z-index: 1000;
-  border-radius: 8px; /* Bordas arredondadas */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
-  overflow: hidden; /* Garante que os itens não ultrapassem as bordas arredondadas */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 2.5s ease, opacity 1s ease, visibility 1s; /* Transição suave e mais lenta */
+  visibility: hidden; /* Oculta o dropdown quando fechado */
+}
+
+.dropdown-menu.open {
+  max-height: 500px;
+  opacity: 1;
+  visibility: visible; /* Mostra o dropdown quando aberto */
+}
+
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #ffffff;
+  z-index: 1001;
 }
 
 .dropdown-item {
   padding: 15px;
   text-align: center;
-  font-size: 19px; 
+  font-size: 19px;
   font-weight: bold;
-  color: #333; /* Cor do texto */
+  color: #333;
   text-decoration: none;
-  border-bottom: 1px solid #ddd; /* Borda inferior cinza clara */
+  border-bottom: 1px solid #ddd;
 }
 
 .dropdown-item:hover {
-  background-color: #f1f1f1; /* Fundo cinza claro ao passar o mouse */
+  background-color: #f1f1f1;
 }
 
-/* Remove a borda do último item */
 .dropdown-item:last-child {
   border-bottom: none;
-}
-.main-content {
-  padding-top: 80px; /* Ajuste este valor conforme a altura da sua ChoiceBar */
 }
 

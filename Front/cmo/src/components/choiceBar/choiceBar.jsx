@@ -29,19 +29,17 @@ function ChoiceBar() {
             </Link>
           ))}
         </div>
-        <span className="menu-icon" onClick={toggleDropdown}>
+        <span className={`menu-icon ${dropdownOpen ? 'open' : ''}`} onClick={toggleDropdown}>
           &#9776;
         </span>
       </div>
-      {dropdownOpen && (
-        <div className="dropdown-menu">
+      <div className={`dropdown-menu ${dropdownOpen ? 'open' : ''}`}>
           {options.map((option, index) => (
             <Link key={index} to={option.path} className="dropdown-item" onClick={toggleDropdown}>
               {option.label}
             </Link>
           ))}
         </div>
-      )}
     </div>
   );
 }
