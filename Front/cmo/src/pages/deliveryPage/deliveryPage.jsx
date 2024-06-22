@@ -6,7 +6,7 @@ import '../../styles/global.css'
 
 function DeliveryPage() {
   const handleWhatsAppClick = () => {
-    const phoneNumber = '554198988376';
+    const phoneNumber = '554137950162';
     const message = 'Olá, gostaria de fazer um pedido de busca/entrega.';
     const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
     window.open(url, '_blank'); 
