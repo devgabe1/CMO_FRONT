@@ -1,80 +1,128 @@
 /* src/components/modal.css */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
-  
-  .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 800px;
-    width: 90%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: relative;
-  }
-  
-  .close-button {
-    position: absolute;
-    top: 1px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 48px; /* Aumenta o tamanho do X */
-    font-weight: bold; /* Deixa o X em negrito */
-    color: black; /* Define a cor preta */
-    cursor: pointer;
-    text-align: center; /* Centraliza o texto dentro do botão */
-    width: auto; /* Garante que a largura do botão seja automática */
-    padding: 2px 30px;
-  }
-  
-  
-  .close-button:hover {
-    color: #ff6200;
-    background-color: #ffffff;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards; /* Animação de entrada */
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transform: scale(0.7);
+  animation: scaleIn 0.3s forwards; /* Animação de entrada */
+}
+
+.close-button {
+  position: absolute;
+  top: 1px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 48px; /* Aumenta o tamanho do X */
+  font-weight: bold; /* Deixa o X em negrito */
+  color: black; /* Define a cor preta */
+  cursor: pointer;
+  text-align: center; /* Centraliza o texto dentro do botão */
+  width: auto; /* Garante que a largura do botão seja automática */
+  padding: 2px 30px;
+}
+
+.close-button:hover {
+  color: #ff6200;
+  background-color: #ffffff;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.modal-description {
+  text-align: left;
+}
+
+@media (min-width: 768px) {
   .modal-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-start;
   }
-  
+
   .modal-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-bottom: 0;
+    width: 40%; /* Ajuste conforme necessário */
   }
-  
+
   .modal-description {
-    text-align: left;
+    margin-top: 30px;
+    width: 60%; /* Ajuste conforme necessário */
   }
-  
-  @media (min-width: 768px) {
-    .modal-body {
-      flex-direction: row;
-      align-items: flex-start;
-    }
-  
-    .modal-image {
-      margin-right: 20px;
-      margin-bottom: 0;
-      width: 40%; /* Ajuste conforme necessário */
-    }
-  
-    .modal-description {
-      margin-top: 30px;
-      width: 60%; /* Ajuste conforme necessário */
-    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.7);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Adicionando classes para fechar com animação */
+.modal-overlay.hide {
+  animation: fadeOut 0.3s forwards; /* Animação de saída */
+}
+
+.modal-content.hide {
+  animation: scaleOut 0.3s forwards; /* Animação de saída */
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.7);
+  }
+}
