@@ -8,7 +8,7 @@ import DeliveryPage from './pages/deliveryPage/deliveryPage';
 import RepairPage from './pages/repairPage/repairPage';
 import Contact from './pages/contactPage/contactPage';
 import LoginPage from './pages/loginPage/loginPage';
-
+import TestPage from './pages/testPage/TestPage'; 
 const AppRoutes = () => {
   return (
     <Routes>
@@ -19,6 +19,8 @@ const AppRoutes = () => {
       <Route path="/conserto" element={<RepairPage />} />
       <Route path="/contato" element={<Contact />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/test" element={<TestPage />} />
+
     </Routes>
   );
 };

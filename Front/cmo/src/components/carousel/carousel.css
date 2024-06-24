@@ -1,10 +1,18 @@
-.slick-slide img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    max-height: 500px; /* Ajuste conforme necessário */
-  }
+/* src/components/Carousel/Carousel.css */
+.carousel-container {
+  width: 100%;
+  max-width: 1800px; /* Ajuste conforme necessário */
+  margin: 0 auto; /* Centraliza o carrossel */
+  padding: 20px; /* Espaçamento ao redor do carrossel */
+}
 
-  .carousel-container {
-    margin-top: 100px; /* Ajuste a margem superior conforme necessário */
-  }
+.slick-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ajuste conforme necessário */
+}
+
+.slick-prev:before, .slick-next:before {
+  font-size: 40px;
+  color: #323232; /* Altere esta cor para a cor desejada */
+}
