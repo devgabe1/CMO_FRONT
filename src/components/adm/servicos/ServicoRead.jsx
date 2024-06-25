@@ -1,6 +1,4 @@
-// src/components/adm/servicos/ServicoRead.jsx
 import React, { useEffect, useState } from 'react';
-import { Table, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import '../adm.css';
 import api from '../../../api/api.jsx';
@@ -13,6 +11,9 @@ function ServicoRead() {
       .then((response) => {
         setAPIData(response.data);
       })
+      .catch((error) => {
+        console.error("Error fetching data from API:", error);
+      });
   }, []);
 
   const setData = (data) => {
@@ -31,6 +32,9 @@ function ServicoRead() {
       .then((getData) => {
         setAPIData(getData.data);
       })
+      .catch((error) => {
+        console.error("Error fetching data from API:", error);
+      });
   }
 
   const onDelete = (id) => {
@@ -39,52 +43,53 @@ function ServicoRead() {
         .then(() => {
           getData();
         })
+        .catch((error) => {
+          console.error("Error deleting data from API:", error);
+        });
     }
   }
 
   return (
     <div>
       <Link to='/adm/servicos/create'>
-        <Button>Novo</Button>
+        <button className="ui-button">Novo</button>
       </Link>
       <h1>Cadastro de Serviços</h1>
-      <Table singleLine>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Título</Table.HeaderCell>
-            <Table.HeaderCell>Descrição</Table.HeaderCell>
-            <Table.HeaderCell>Imagem</Table.HeaderCell>
-            <Table.HeaderCell>Link</Table.HeaderCell>
-            <Table.HeaderCell>Ordem</Table.HeaderCell>
-            <Table.HeaderCell>Ativo</Table.HeaderCell>
-            <Table.HeaderCell>Alterar</Table.HeaderCell>
-            <Table.HeaderCell>Desativar</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
+      <table className="ui-table">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Imagem</th>
+            <th>Link</th>
+            <th>Ordem</th>
+            <th>Ativo</th>
+            <th>Alterar</th>
+            <th>Desativar</th>
+          </tr>
+        </thead>
 
-        <Table.Body>
-          {APIData.map((data) => {
-            return (
-              <Table.Row key={data.id_servico}>
-                <Table.Cell>{data.titulo_servico}</Table.Cell>
-                <Table.Cell>{data.desc_servico}</Table.Cell>
-                <Table.Cell>{data.img_servico}</Table.Cell>
-                <Table.Cell>{data.url_servico}</Table.Cell>
-                <Table.Cell>{data.ordem}</Table.Cell>
-                <Table.Cell>{data.ativo ? 'Ativo' : ''}</Table.Cell>
-                <Table.Cell>
-                  <Link to='/adm/servicos/update'>
-                    <Button onClick={() => setData(data)}>Alterar</Button>
-                  </Link>
-                </Table.Cell>
-                <Table.Cell>
-                  <Button onClick={() => onDelete(data.id_servico)}>Desativar</Button>
-                </Table.Cell>
-              </Table.Row>
-            )
-          })}
-        </Table.Body>
-      </Table>
+        <tbody>
+          {APIData.map((data) => (
+            <tr key={data.id_servico}>
+              <td>{data.titulo_servico}</td>
+              <td>{data.desc_servico}</td>
+              <td>{data.img_servico}</td>
+              <td>{data.url_servico}</td>
+              <td>{data.ordem}</td>
+              <td>{data.ativo ? 'Ativo' : ''}</td>
+              <td>
+                <Link to='/adm/servicos/update'>
+                  <button className="ui-button" onClick={() => setData(data)}>Alterar</button>
+                </Link>
+              </td>
+              <td>
+                <button className="ui-button" onClick={() => onDelete(data.id_servico)}>Desativar</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }
