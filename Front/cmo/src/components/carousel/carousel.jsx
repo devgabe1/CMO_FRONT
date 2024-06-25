@@ -7,14 +7,14 @@ import 'slick-carousel/slick/slick-theme.css';
 import './carousel.css';
 
 // Exemplo de imagens (substitua pelos seus próprios caminhos)
-import CarouselImage1 from '../../styles/images/logos/logo1.png';
-import CarouselImage2 from '../../styles/images/logos/logo2.png';
-import CarouselImage3 from '../../styles/images/logos/logo3.png';
-import CarouselImage4 from '../../styles/images/logos/logo4.png';
-import CarouselImage5 from '../../styles/images/logos/logo5.png';
-import CarouselImage6 from '../../styles/images/logos/logo6.png';
-import CarouselImage7 from '../../styles/images/logos/logo7.png';
-import CarouselImage8 from '../../styles/images/logos/logo8.png';
+import CarouselImage1 from '../../styles/images/logosMarcas/logo1.png';
+import CarouselImage2 from '../../styles/images/logosMarcas/logo2.png';
+import CarouselImage3 from '../../styles/images/logosMarcas/logo3.png';
+import CarouselImage4 from '../../styles/images/logosMarcas/logo4.png';
+import CarouselImage5 from '../../styles/images/logosMarcas/logo5.png';
+import CarouselImage6 from '../../styles/images/logosMarcas/logo6.png';
+import CarouselImage7 from '../../styles/images/logosMarcas/logo7.png';
+import CarouselImage8 from '../../styles/images/logosMarcas/logo8.png';
 
 const Carousel = () => {
   const settings = {
