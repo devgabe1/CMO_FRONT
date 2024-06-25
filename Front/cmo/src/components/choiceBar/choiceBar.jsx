@@ -1,3 +1,5 @@
+// src/components/choiceBar/choiceBar.jsx
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './choiceBar.css';

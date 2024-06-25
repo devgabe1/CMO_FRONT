@@ -1,3 +1,4 @@
+// src/pages/locationPage/locationPage.jsxs
 import React from 'react';
 import './locationPage.css'; // Importa o arquivo de estilos CSS
 import '../../styles/global.css'

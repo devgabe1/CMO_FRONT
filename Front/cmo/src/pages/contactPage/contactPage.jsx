@@ -1,4 +1,5 @@
-// src/pages/LocationPage.jsx
+// src/pages/contactPage/contactPage.jsx
+
 import React from 'react';
 import './contactPage.css';
 import '../../styles/global.css'

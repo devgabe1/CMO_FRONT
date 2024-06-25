@@ -1,4 +1,4 @@
-// src/pages/LocationPage.jsx
+// src/pages/deliveryPage/deliveryPage.jsx
 import React from 'react';
 import ChoiceBar from '../../components/choiceBar/choiceBar';
 import './deliveryPage.css'; // Importa o arquivo de estilos CSS

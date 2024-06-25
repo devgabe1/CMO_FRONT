@@ -1,3 +1,4 @@
+// src/pages/repairPage/repairPage.jsx
 import React from 'react';
 import ChoiceBar from '../../components/choiceBar/choiceBar';
 import './repairPage.css'; // Importa o arquivo de estilos CSS

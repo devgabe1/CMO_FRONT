@@ -1,4 +1,4 @@
-// src/pages/homePage/LoginPage.jsx
+// src/pages/loginPage/loginPage.jsx
 import React from 'react';
 import '../../styles/global.css'
 import ChoiceBar from '../../components/choiceBar/choiceBar';

@@ -1,4 +1,4 @@
-// src/pages/homePage/HomePage.jsx
+// src/pages/homePage/homePage.jsx
 import React from 'react';
 import '../../styles/global.css';
 import Carousel from '../../components/carousel/carousel';

@@ -1,4 +1,4 @@
-// src/pages/ServicePage.jsx
+// src/page/servicePage/servicePage.jsx
 import React, { useState } from 'react';
 import './servicePage.css'; // Importa o CSS específico para esta página
 import Modal from '../../components/modal/modal';
