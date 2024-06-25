@@ -1,6 +1,7 @@
+// src/components/adm/servicos/ServicoUpdate.jsx
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import api from '../../../api/api.jsx';
+import { useNavigate } from 'react-router-dom';
 import '../adm.css';
 
 export default function ServicoUpdate() {
@@ -19,7 +20,7 @@ export default function ServicoUpdate() {
     const desc_servico = localStorage.getItem('Desc');
     const img_servico = localStorage.getItem('Imagem');
     const url_servico = localStorage.getItem('URL');
-    const ordem_servico = localStorage.getItem('Ordem');
+    const ordem_apresentacao = localStorage.getItem('Ordem');
     const ativo_servico = localStorage.getItem('Checkbox Value') === 'true';
 
     setID(id_servico || '');
@@ -27,7 +28,7 @@ export default function ServicoUpdate() {
     setDesc(desc_servico || '');
     setImagem(img_servico || '');
     setURL(url_servico || '');
-    setOrdem(ordem_servico || '');
+    setOrdem(ordem_apresentacao || '');
     setAtivo(ativo_servico);
   }, []);
 
@@ -37,69 +38,46 @@ export default function ServicoUpdate() {
       desc,
       img: imagem,
       url,
-      ordem,
+      ordem: parseInt(ordem), // Certifique-se de que a ordem é um número
       ativo
     }).then(() => {
       navigate('/adm/servicos');
     }).catch(error => {
       console.error("Error updating data:", error);
     });
-  }
+  };
 
   return (
-    <div>
+    <div className="formulario-container">
+      <h2>Alterar Serviço</h2>
       <form className="ui-form">
-        <div className="ui-form-field">
+        <div className="campo-formulario">
           <label>Título</label>
-          <input
-            placeholder='Título'
-            value={titulo}
-            onChange={(e) => setTitulo(e.target.value)}
-          />
+          <input type="text" placeholder="Título" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
         </div>
-        <div className="ui-form-field">
+        <div className="campo-formulario">
           <label>Descrição</label>
-          <input
-            placeholder='Descrição'
-            value={desc}
-            onChange={(e) => setDesc(e.target.value)}
-          />
+          <input type="text" placeholder="Descrição" value={desc} onChange={(e) => setDesc(e.target.value)} />
         </div>
-        <div className="ui-form-field">
+        <div className="campo-formulario">
           <label>Imagem</label>
-          <input
-            placeholder='URL da Imagem'
-            value={imagem}
-            onChange={(e) => setImagem(e.target.value)}
-          />
+          <input type="text" placeholder="URL da Imagem" value={imagem} onChange={(e) => setImagem(e.target.value)} />
         </div>
-        <div className="ui-form-field">
+        <div className="campo-formulario">
           <label>Link</label>
-          <input
-            placeholder='URL da página'
-            value={url}
-            onChange={(e) => setURL(e.target.value)}
-          />
+          <input type="text" placeholder="URL da página" value={url} onChange={(e) => setURL(e.target.value)} />
         </div>
-        <div className="ui-form-field">
+        <div className="campo-formulario">
           <label>Ordem</label>
-          <input
-            placeholder='Ordem'
-            value={ordem}
-            onChange={(e) => setOrdem(e.target.value)}
-          />
+          <input type="text" placeholder="Ordem" value={ordem} onChange={(e) => setOrdem(e.target.value)} />
         </div>
-        <div className="ui-form-field">
+        <div className="campo-formulario">
           <label>
-            <input
-              type="checkbox"
-              checked={ativo}
-              onChange={(e) => setAtivo(e.target.checked)}
-            />
+            <input type="checkbox" checked={ativo} onChange={(e) => setAtivo(e.target.checked)} />
             Ativo
           </label>
         </div>
-        <button type='button' onClick={updateAPIData} className="ui-button">Update</button>
+        <button type="button" onClick={updateAPIData}>Update</button>
       </form>
     </div>
   );
