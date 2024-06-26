@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../../api/api.jsx';
-import '../adm.css';
+import '../admTable.css';
 
 function ServicoRead() {
   const [APIData, setAPIData] = useState([]);
@@ -32,13 +32,24 @@ function ServicoRead() {
       });
   };
 
-  const onDelete = (id) => {
-    if (window.confirm('Tem certeza de excluir esse serviço do site?')) {
-      api.delete(`/servicos/${id}`)
-        .then(() => {
-          getData();
-        });
-    }
+  const toggleStatus = (data) => {
+    const updatedData = {
+      id: data.id_servico,
+      titulo: data.titulo_servico,
+      desc: data.desc_servico,
+      img: data.img_servico,
+      url: data.url_servico,
+      ordem: data.ordem_apresentacao,
+      ativo: data.ativo ? 0 : 1
+    };
+
+    api.put(`/servicos/${data.id_servico}`, updatedData)
+      .then(() => {
+        getData();
+      })
+      .catch(error => {
+        console.error("Error updating data:", error);
+      });
   };
 
   return (
@@ -57,31 +68,33 @@ function ServicoRead() {
             <th>Ordem</th>
             <th>Ativo</th>
             <th>Alterar</th>
-            <th>Desativar</th>
+            <th>Ativar/Desativar</th>
           </tr>
         </thead>
         <tbody>
-          {APIData.map((data) => {
-            return (
-              <tr key={data.id_servico}>
-                <td>{data.titulo_servico}</td>
-                <td>{data.desc_servico}</td>
-                <td>{data.img_servico}</td>
-                <td>{data.url_servico}</td>
-                <td>{data.ordem_apresentacao}</td>
-                <td>{data.ativo ? 'Ativo' : ''}</td>
-                <td>
-                  <Link to='/adm/servicos/update'>
-                    <button className="button" onClick={() => setData(data)}>Alterar</button>
-                  </Link>
-                </td>
-                <td>
-                  <button className="button" onClick={() => onDelete(data.id_servico)}>Desativar</button>
-                </td>
-              </tr>
-            )
-          })}
-        </tbody>
+  {APIData.map((data) => {
+    return (
+      <tr key={data.id_servico}>
+        <td data-label="Título">{data.titulo_servico}</td>
+        <td data-label="Descrição">{data.desc_servico}</td>
+        <td data-label="Imagem">{data.img_servico}</td>
+        <td data-label="Link">{data.url_servico}</td>
+        <td data-label="Ordem">{data.ordem_apresentacao}</td>
+        <td data-label="Ativo">{data.ativo ? 'Ativo' : 'Inativo'}</td>
+        <td data-label="Alterar">
+          <Link to='/adm/servicos/update'>
+            <button className="button" onClick={() => setData(data)}>Alterar</button>
+          </Link>
+        </td>
+        <td data-label="Ativar/Desativar">
+          <button className="button" onClick={() => toggleStatus(data)}>
+            {data.ativo ? 'Desativar' : 'Ativar'}
+          </button>
+        </td>
+      </tr>
+    )
+  })}
+</tbody>
       </table>
     </div>
   );

@@ -1,7 +1,7 @@
 // src/components/adm/servicos/ServicoCreate.jsx
 import React, { useState } from 'react';
 import api from '../../../api/api.jsx';
-import '../adm.css';
+import '../admForm.css';
 
 export default function ServicoCreate() {
   const [titulo, setTitulo] = useState('');

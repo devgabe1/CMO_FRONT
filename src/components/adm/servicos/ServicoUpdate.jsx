@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../../api/api.jsx';
 import { useNavigate } from 'react-router-dom';
-import '../adm.css';
+import '../admForm.css';
 
 export default function ServicoUpdate() {
   const navigate = useNavigate();

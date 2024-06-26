@@ -1,5 +1,3 @@
-/* src/components/adm/adm.css */
-
 .formulario-container {
     max-width: 600px;
     width: 100%; /* Garante que o contêiner ocupe 100% da largura disponível */
@@ -105,36 +103,3 @@
     }
   }
   
-/* Estilos para o contêiner da tabela */
-/* Estilos para o contêiner da tabela */
-.table-container {
-    width: 100%; /* Garante que o contêiner ocupe 100% da largura disponível */
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9); 
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    font-family: 'SST';
-    font-weight: bold;
-  }
-  
-  /* Estilos para a tabela */
-  .table-container table {
-    width: 100%; /* Garante que a tabela ocupe 100% da largura disponível */
-    border-collapse: collapse;
-  }
-  
-  .table-container th, .table-container td {
-    padding: 12px;
-    border: 1px solid #ccc;
-    text-align: left;
-  }
-  
-  .table-container th {
-    background-color: #0056b3;
-    color: white;
-  }
-  
-  .table-container tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }

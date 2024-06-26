@@ -1,0 +1,98 @@
+/* src/components/adm/adm.css */
+
+
+/* Estilos para o contêiner da tabela */
+.table-container {
+  width: 100%; /* Garante que o contêiner ocupe 100% da largura disponível */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9); 
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  font-family: 'SST';
+  font-weight: bold;
+  overflow-x: auto; /* Adiciona rolagem horizontal para tabelas largas */
+}
+
+/* Estilos para a tabela */
+.table-container table {
+  width: 100%; /* Garante que a tabela ocupe 100% da largura disponível */
+  border-collapse: collapse;
+}
+
+.table-container th, .table-container td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.table-container th {
+  background-color: #0056b3;
+  color: white;
+}
+
+.table-container tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Estilos para os botões na tabela */
+.button {
+  padding: 10px 15px;
+  font-size: 14px;
+  background-color: #0056b3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-sizing: border-box; /* Inclui padding e border no tamanho total */
+}
+
+.button:hover {
+  background-color: #000066;
+}
+
+/* Responsividade para a tabela */
+@media (max-width: 768px) {
+  .table-container {
+      padding: 10px;
+  }
+
+  .table-container th, .table-container td {
+      padding: 8px;
+      font-size: 14px; /* Ajusta o tamanho do texto para telas menores */
+  }
+
+  .table-container table {
+      width: 100%; /* Garante que a tabela ocupe 100% da largura disponível */
+      display: block; /* Torna a tabela um bloco para melhor manipulação */
+      overflow-x: auto; /* Adiciona rolagem horizontal */
+      
+  }
+
+  .table-container table thead {
+      display: none; /* Esconde o cabeçalho da tabela em telas pequenas */
+  }
+
+  .table-container table tbody tr {
+      display: block; /* Torna cada linha um bloco */
+      margin-bottom: 10px; /* Espaçamento entre as linhas */
+  }
+
+  .table-container table tbody td {
+      display: flex; /* Usa flexbox para a célula e seu título */
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .table-container table tbody td:before {
+      content: attr(data-label); /* Adiciona um título antes do conteúdo da célula */
+      flex-basis: 50%; /* Define a largura do título */
+      text-align: left; /* Alinha o texto à esquerda */
+      font-weight: bold; /* Torna o título em negrito */
+  }
+
+  .button {
+      padding: 8px 12px; /* Ajusta o padding do botão para telas menores */
+      font-size: 12px; /* Ajusta o tamanho do texto do botão para telas menores */
+  }
+}
