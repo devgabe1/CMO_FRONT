@@ -1,3 +1,4 @@
+/* src/components/adm/admTable.css */
 /* Estilos para o contêiner da tabela */
 .table-container {
   max-width: 100%; /* Ajuste conforme necessário */
@@ -98,6 +99,35 @@
   color: rgb(255, 49, 49);
 }
 
+.sort-options {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: #000000;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  padding: 0; /* Remove o padding da lista */
+  list-style: none; /* Remove os pontos da lista */
+}
+
+.dropdown li {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background-color: #f1f1f1;
+}
+
+/* Remova a linha a seguir */
+.sort-options .dropdown {
+  /* Remova a linha a seguir */
+  /* display: ${showSortOptions ? 'block' : 'none'}; */
+}
 
 @media (max-width: 1220px) {
   .table-container {
@@ -156,4 +186,3 @@
       font-size: 12px; /* Ajusta o tamanho do texto do botão para telas menores */
   }
 }
-
