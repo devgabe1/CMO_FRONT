@@ -97,17 +97,20 @@
 @media (max-width: 1220px) {
   .table-container {
       padding: 10px;
+      overflow-x: auto; /* Permite rolagem horizontal dentro do contêiner */
   }
 
   .table-container th, .table-container td {
       padding: 8px;
       font-size: 14px; /* Ajusta o tamanho do texto para telas menores */
+      word-wrap: break-word; /* Quebra o texto longo em várias linhas */
+      white-space: normal; /* Garante que o texto seja quebrado em várias linhas */
+      word-break: break-all; /* Quebra palavras longas sem espaços */
   }
 
   .table-container table {
-      width: 80%; /* Garante que a tabela ocupe 100% da largura disponível */
+      width: 100%; /* Garante que a tabela ocupe 100% da largura disponível */
       display: block; /* Torna a tabela um bloco para melhor manipulação */
-      overflow-x: auto; /* Adiciona rolagem horizontal */
   }
 
   .table-container table thead {
@@ -123,6 +126,9 @@
       display: flex; /* Usa flexbox para a célula e seu título */
       justify-content: space-between;
       align-items: center;
+      word-wrap: break-word; /* Garante que o texto nas células seja quebrado em várias linhas */
+      white-space: normal; /* Garante que o texto seja quebrado em várias linhas */
+      word-break: break-all; /* Quebra palavras longas sem espaços */
   }
 
   .table-container table tbody td:before {
@@ -132,8 +138,17 @@
       font-weight: bold; /* Torna o título em negrito */
   }
 
+  .table-container table tbody td[data-label="Imagem"]:before {
+      margin-right: 40px; /* Adiciona uma margem à direita do texto "Imagem" */
+  }
+
+  .table-container table tbody td:last-child:before {
+      content: ''; /* Remove o título do último botão */
+  }
+
   .button {
       padding: 8px 12px; /* Ajusta o padding do botão para telas menores */
       font-size: 12px; /* Ajusta o tamanho do texto do botão para telas menores */
   }
 }
+
