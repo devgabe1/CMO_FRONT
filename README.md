@@ -1,37 +1,37 @@
-Casa do Microondas
-Status: Em Desenvolvimento ⚠️
+# Casa do Microondas
 
-Este é um site planejado pela minha equipe quando realizamos o CMO de um site de micro-ondas.
-Casa do Microondas
+> Status: Em Desenvolvimento ⚠️
+
+### Este é um site planejado pela minha equipe sendo o Gabriel Shultz como gestor, Kauã e Vitor como executores, e Gabriel Seixas e João como criadores, quando realizamos a criação de um site de micro-ondas.
+
+## Casa do Microondas
+
 Casa do Microondas é um site desenvolvido para uma empresa que oferece serviços de reparo de micro-ondas. O objetivo do site é ser uma plataforma simples e altamente funcional para que os clientes possam solicitar serviços e obter informações sobre os serviços oferecidos.
 
-Funcionalidades
-Agendamento de Reparo: Permite que os usuários agendem serviços de reparo.
-Consulta de Serviços: Lista os serviços oferecidos pela empresa.
-Contato: Formulário de contato para suporte e dúvidas.
-Tecnologias Utilizadas
-Frontend: HTML, CSS, JavaScript, React
-Backend: Node.js, Express.js
-Banco de Dados: MySQL
-Requisitos
-Node.js
-MySQL
-Instalação
-Clone o repositório: 
-git clone https://github.com/devgabe1/CMO_BACK
-git clone https://github.com/devgab1/CMO_FRONT
+## Funcionalidades
 
+- **Agendamento de Reparo**: Permite que os usuários agendem serviços de reparo.
+- **Consulta de Serviços**: Lista os serviços oferecidos pela empresa.
+- **Contato**: Formulário de contato para suporte e dúvidas.
 
-bash
-Copiar código
-git clone https://github.com/devgabe1/CMO_BACK
-git clone https://github.com/devgab1/CMO_FRONT
+## Tecnologias Utilizadas
+
+- **Frontend**: HTML, CSS, JavaScript, React
+- **Backend**: Node.js, Express.js
+- **Banco de Dados**: MySQL
+
+## Requisitos
+
+- Node.js
+- MySQL
+
+## Instalação
+
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/devgabe1/CMO_BACK
+   git clone https://github.com/devgab1/CMO_FRONT
 Instale as dependências do projeto para backend e frontend:
-cd CMO_BACK
-npm install
-cd ../CMO_FRONT
-npm install
-
 
 bash
 Copiar código
@@ -40,32 +40,21 @@ npm install
 cd ../CMO_FRONT
 npm install
 Configure o banco de dados MySQL:
-Crie um banco de dados no MySQL.
-Atualize as informações de conexão do banco de dados no arquivo de configuração do backend (config.js).
-
 
 Crie um banco de dados no MySQL.
 Atualize as informações de conexão do banco de dados no arquivo de configuração do backend (config.js).
 Execute as migrações do banco de dados:
-cd CMO_BACK
-npm run migrate
-
 
 bash
 Copiar código
 cd CMO_BACK
 npm run migrate
 Inicie o servidor backend:
-npm start
-
 
 bash
 Copiar código
 npm start
 Inicie o servidor frontend:
-cd ../CMO_FRONT
-npm start
-
 
 bash
 Copiar código
@@ -123,5 +112,10 @@ Licença
 Este projeto está licenciado sob a Licença MIT.
 
 Agradecimentos
-Agradecimentos a Nome do Contribuidor pela configuração inicial.
-Agradecimentos especiais à comunidade Biblioteca/Framework pelo suporte.
+Agradecimentos a [Nome do Contribuidor] pela configuração inicial.
+Agradecimentos especiais à comunidade [Biblioteca/Framework] pelo suporte.
+css
+Copiar código
+
+
+Sinta-se à vontade para substituir os placeholders como `[Nome do Contribuidor]` e `[Biblioteca/Framework]` pelos nomes reais e URLs apropriados.
