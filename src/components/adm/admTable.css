@@ -94,6 +94,11 @@
   cursor: default; /* Remove o cursor de pointer para spans */
 }
 
+.inactive {
+  color: rgb(255, 49, 49);
+}
+
+
 @media (max-width: 1220px) {
   .table-container {
       padding: 10px;
