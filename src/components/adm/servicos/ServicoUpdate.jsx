@@ -21,7 +21,8 @@ export default function ServicoUpdate() {
     const img_servico = localStorage.getItem('Imagem');
     const url_servico = localStorage.getItem('URL');
     const ordem_apresentacao = localStorage.getItem('Ordem');
-    const ativo_servico = localStorage.getItem('Checkbox Value') === 'true';
+    const ativo_servico = localStorage.getItem('Checkbox Value') === '1'; // Ajuste aqui
+
 
     setID(id_servico || '');
     setTitulo(titulo_servico || '');
@@ -33,18 +34,25 @@ export default function ServicoUpdate() {
   }, []);
 
   const updateAPIData = () => {
-    api.put(`/servicos/${id}`, {
+    const updatedData = {
       titulo,
       desc,
       img: imagem,
       url,
       ordem: parseInt(ordem), // Certifique-se de que a ordem é um número
-      ativo
-    }).then(() => {
-      navigate('/adm/servicos');
-    }).catch(error => {
-      console.error("Error updating data:", error);
-    });
+      ativo: ativo ? 1 : 0 // Converte o valor booleano para 1 ou 0
+    };
+
+    
+
+    api.put(`/servicos/${id}`, updatedData)
+      .then(response => {
+        console.log("Update response:", response.data);
+        navigate('/adm/servicos');
+      })
+      .catch(error => {
+        console.error("Error updating data:", error);
+      });
   };
 
   return (
