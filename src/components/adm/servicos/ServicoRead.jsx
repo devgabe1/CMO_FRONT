@@ -6,6 +6,8 @@ import '../admTable.css';
 
 function ServicoRead() {
   const [APIData, setAPIData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [servicesPerPage] = useState(6);
 
   useEffect(() => {
     api.get(`/admServicos`)
@@ -52,6 +54,18 @@ function ServicoRead() {
       });
   };
 
+  // Logic for displaying current services
+  const indexOfLastService = currentPage * servicesPerPage;
+  const indexOfFirstService = indexOfLastService - servicesPerPage;
+  const currentServices = APIData.slice(indexOfFirstService, indexOfLastService);
+
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(APIData.length / servicesPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div className="table-container">
       <Link to='/adm/servicos/create'>
@@ -72,30 +86,39 @@ function ServicoRead() {
           </tr>
         </thead>
         <tbody>
-  {APIData.map((data) => {
-    return (
-      <tr key={data.id_servico}>
-        <td data-label="Título">{data.titulo_servico}</td>
-        <td data-label="Descrição">{data.desc_servico}</td>
-        <td data-label="Imagem">{data.img_servico}</td>
-        <td data-label="Link">{data.url_servico}</td>
-        <td data-label="Ordem">{data.ordem_apresentacao}</td>
-        <td data-label="Ativo">{data.ativo ? 'Ativo' : 'Inativo'}</td>
-        <td data-label="Alterar">
-          <Link to='/adm/servicos/update'>
-            <button className="button" onClick={() => setData(data)}>Alterar</button>
-          </Link>
-        </td>
-        <td data-label="Ativar/Desativar">
-          <button className="button" onClick={() => toggleStatus(data)}>
-            {data.ativo ? 'Desativar' : 'Ativar'}
-          </button>
-        </td>
-      </tr>
-    )
-  })}
-</tbody>
+          {currentServices.map((data) => {
+            return (
+              <tr key={data.id_servico}>
+                <td data-label="Título">{data.titulo_servico}</td>
+                <td data-label="Descrição">{data.desc_servico}</td>
+                <td data-label="Imagem">{data.img_servico}</td>
+                <td data-label="Link">{data.url_servico}</td>
+                <td data-label="Ordem">{data.ordem_apresentacao}</td>
+                <td data-label="Ativo">{data.ativo ? 'Ativo' : 'Inativo'}</td>
+                <td data-label="Alterar">
+                  <Link to='/adm/servicos/update'>
+                    <button className="button" onClick={() => setData(data)}>Alterar</button>
+                  </Link>
+                </td>
+                <td data-label="Ativar/Desativar">
+                  <button className="button" onClick={() => toggleStatus(data)}>
+                    {data.ativo ? 'Desativar' : 'Ativar'}
+                  </button>
+                </td>
+              </tr>
+            )
+          })}
+        </tbody>
       </table>
+      <div className="pagination">
+        <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>&laquo;</button>
+        {pageNumbers.map(number => (
+          <button key={number} onClick={() => paginate(number)} className={currentPage === number ? 'active' : ''}>
+            {number}
+          </button>
+        ))}
+        <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === pageNumbers.length}>&raquo;</button>
+      </div>
     </div>
   );
 }

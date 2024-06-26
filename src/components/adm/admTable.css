@@ -1,9 +1,6 @@
-/* src/components/adm/adm.css */
-
-
 /* Estilos para o contêiner da tabela */
 .table-container {
-  width: 100%; /* Garante que o contêiner ocupe 100% da largura disponível */
+  max-width: 100%; /* Ajuste conforme necessário */
   margin: 0 auto;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.9); 
@@ -12,12 +9,14 @@
   font-family: 'SST';
   font-weight: bold;
   overflow-x: auto; /* Adiciona rolagem horizontal para tabelas largas */
+  text-align: center; /* Centraliza o texto dentro do contêiner */
 }
 
 /* Estilos para a tabela */
 .table-container table {
   width: 100%; /* Garante que a tabela ocupe 100% da largura disponível */
   border-collapse: collapse;
+  margin: 0 auto; /* Centraliza a tabela dentro do contêiner */
 }
 
 .table-container th, .table-container td {
@@ -51,8 +50,51 @@
   background-color: #000066;
 }
 
-/* Responsividade para a tabela */
-@media (max-width: 768px) {
+/* Estilos para a paginação */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /* Posiciona a paginação de forma absoluta */
+  bottom: 20px; /* Fixa a 20px do fundo do contêiner */
+  left: 50%;
+  transform: translateX(-50%); /* Centraliza horizontalmente */
+  gap: 5px; /* Adiciona um espaço entre os botões */
+}
+
+.pagination button, .pagination span {
+  width: 30px; /* Define uma largura fixa para os botões */
+  height: 30px; /* Define uma altura fixa para os botões */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 8px; /* Ajusta o padding para um tamanho menor */
+  margin: 0 2px; /* Reduz a margem entre os botões */
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px; /* Ajusta o tamanho da fonte */
+  flex-shrink: 0; /* Impede que os botões se expandam */
+}
+
+.pagination button.active {
+  background-color: #000066;
+}
+
+.pagination button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  background-color: transparent;
+  color: #000;
+  cursor: default; /* Remove o cursor de pointer para spans */
+}
+
+@media (max-width: 1220px) {
   .table-container {
       padding: 10px;
   }
@@ -63,10 +105,9 @@
   }
 
   .table-container table {
-      width: 100%; /* Garante que a tabela ocupe 100% da largura disponível */
+      width: 80%; /* Garante que a tabela ocupe 100% da largura disponível */
       display: block; /* Torna a tabela um bloco para melhor manipulação */
       overflow-x: auto; /* Adiciona rolagem horizontal */
-      
   }
 
   .table-container table thead {
@@ -75,7 +116,7 @@
 
   .table-container table tbody tr {
       display: block; /* Torna cada linha um bloco */
-      margin-bottom: 10px; /* Espaçamento entre as linhas */
+      margin-bottom: 50px; /* Espaçamento entre as linhas */
   }
 
   .table-container table tbody td {
