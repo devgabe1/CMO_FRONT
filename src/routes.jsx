@@ -14,7 +14,7 @@ import ServicoRead from './components/adm/servicos/ServicoRead';
 import ServicoCreate from './components/adm/servicos/ServicoCreate';
 import ServicoUpdate from './components/adm/servicos/ServicoUpdate';
 import MarcaRead from './components/adm/marcas/marcaRead';
-
+import MarcaUpdate from './components/adm/marcas/marcaUpdate';
 import TestConnection from './components/TestConnection'; // Importa o componente de teste
 
 const AppRoutes = () => {
@@ -33,7 +33,7 @@ const AppRoutes = () => {
       <Route path="/adm/servicos/create" element={<ServicoCreate />} />
       <Route path="/adm/servicos/update" element={<ServicoUpdate />} />
       <Route path="/adm/marcas" element={<MarcaRead />} />
-
+      <Route path="/adm/marcas/update" element={<MarcaUpdate />} />
       <Route path="/test-connection" element={<TestConnection />} /> {/* Rota para o teste */}
     </Routes>
   );
