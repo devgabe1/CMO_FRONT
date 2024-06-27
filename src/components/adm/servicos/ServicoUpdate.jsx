@@ -57,10 +57,11 @@ export default function ServicoUpdate() {
   };
 
   return (
-<div className="formulario-container">
+    <div className='page-backgroundADMTable'>
 <div className="main-content"> 
       <ChoiceBarADM />
       </div>
+      <div className="formulario-container">
   <h2>Alterar Serviço</h2>
   <form className="ui-form">
     <div className="campo-formulario">
@@ -89,6 +90,7 @@ export default function ServicoUpdate() {
     </div>
     <button type="button" onClick={updateAPIData}>Update</button>
   </form>
+</div>
 </div>
   );
 }

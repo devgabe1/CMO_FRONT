@@ -26,10 +26,11 @@ export default function ServicoCreate() {
   };
 
   return (
-    <div className="formulario-container">
-                  <div className="main-content"> 
+    <div className='page-backgroundADMTable'>
+<div className="main-content"> 
       <ChoiceBarADM />
       </div>
+      <div className="formulario-container">
       <h2>Novo Serviço</h2>
       <form className="ui-form">
         <div className="campo-formulario">
@@ -58,6 +59,7 @@ export default function ServicoCreate() {
     </div>
         <button type="button" onClick={postServico}>Gravar</button>
       </form>
+    </div>
     </div>
   );
 }

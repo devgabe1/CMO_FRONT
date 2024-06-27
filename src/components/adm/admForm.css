@@ -1,8 +1,17 @@
 /* src/components/adm/admForm.css */
+.page-backgroundADMForm{
+  background-image: url('../../background/backgroundADM.png'); /* Caminho para a sua imagem */
+  background-size: cover; /* Faz com que a imagem cubra todo o fundo */
+  background-position: center; /* Centraliza a imagem no fundo */
+  background-repeat: no-repeat; /* Evita a repetição da imagem */
+  width: 100%; /* Garante que a largura do contêiner seja 100% */
+  min-height: 100vh; /* Garante que a altura mínima seja a altura da viewport */
+}
+
 .formulario-container {
     max-width: 600px;
     width: 100%; /* Garante que o contêiner ocupe 100% da largura disponível */
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9); 
     border-radius: 8px;
@@ -49,7 +58,7 @@
   button {
     padding: 10px 30px;
     font-size: 16px;
-    background-color: #0056b3;
+    background-color: #000066;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -59,7 +68,7 @@
   }
   
   button:hover {
-    background-color: #000066;
+    background-color: #0056b3;
   }
   
   .campo-formulario input,
@@ -123,6 +132,7 @@
         margin-left: 0; /* Remove qualquer margem à esquerda */
         transform: scale(1.5); /* Aumenta o tamanho do checkbox */
         margin-right: 75%;
+        
       }
   }
   
