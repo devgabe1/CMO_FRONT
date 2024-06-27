@@ -15,7 +15,7 @@ function ChoiceBar() {
     { label: 'Chamados', path: '/adm/servicos' },
     { label: 'Contatos', path: '/adm/servicos' },
     { label: 'Filiais', path: '/adm/servicos' },
-    { label: 'Marcas', path: '/adm/servicos' },
+    { label: 'Marcas', path: '/adm/marcas' },
     { label: 'Serviços', path: '/adm/servicos' },
     { label: 'Login', path: '/adm/servicos' } 
   ];
