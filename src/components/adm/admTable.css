@@ -163,7 +163,6 @@
 
   .table-container table {
       width: 100%; /* Garante que a tabela ocupe 100% da largura disponível */
-      display: block; /* Torna a tabela um bloco para melhor manipulação */
   }
 
   .table-container table thead {
