@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../../api/api.jsx';
 import '../admTable.css';
+import ChoiceBarADM from '../../choiceBarADM/choiceBarADM';
 
 function ServicoRead() {
   const [APIData, setAPIData] = useState([]);
@@ -93,6 +94,9 @@ function ServicoRead() {
 
   return (
     <div className="table-container">
+            <div className="main-content"> 
+      <ChoiceBarADM />
+      </div>
       <Link to='/adm/servicos/create'>
         <button className="button">Novo</button>
       </Link>

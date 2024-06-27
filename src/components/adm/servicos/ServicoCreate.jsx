@@ -1,6 +1,7 @@
 // src/components/adm/servicos/ServicoCreate.jsx
 import React, { useState } from 'react';
 import api from '../../../api/api.jsx';
+import ChoiceBarADM from '../../choiceBarADM/choiceBarADM';
 import '../admForm.css';
 
 export default function ServicoCreate() {
@@ -26,6 +27,9 @@ export default function ServicoCreate() {
 
   return (
     <div className="formulario-container">
+                  <div className="main-content"> 
+      <ChoiceBarADM />
+      </div>
       <h2>Novo Serviço</h2>
       <form className="ui-form">
         <div className="campo-formulario">

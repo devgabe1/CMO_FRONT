@@ -102,7 +102,7 @@
 .sort-options {
   position: absolute;
   left: 20px; /* Ajuste conforme necessário */
-  top: 90px; /* Ajuste conforme necessário para alinhar verticalmente */
+  top: 170px; /* Ajuste conforme necessário para alinhar verticalmente */
 }
 
 .dropdown {
@@ -189,6 +189,6 @@
   .sort-options {
     position: absolute;
     left: 10px; /* Ajuste conforme necessário */
-    top: 80px; /* Ajuste conforme necessário para alinhar verticalmente */
+    top: 150px; /* Ajuste conforme necessário para alinhar verticalmente */
   }
 }

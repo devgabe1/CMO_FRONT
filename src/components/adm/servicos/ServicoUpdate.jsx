@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../../api/api.jsx';
 import { useNavigate } from 'react-router-dom';
+import ChoiceBarADM from '../../choiceBarADM/choiceBarADM';
 import '../admForm.css';
 
 export default function ServicoUpdate() {
@@ -57,6 +58,9 @@ export default function ServicoUpdate() {
 
   return (
 <div className="formulario-container">
+<div className="main-content"> 
+      <ChoiceBarADM />
+      </div>
   <h2>Alterar Serviço</h2>
   <form className="ui-form">
     <div className="campo-formulario">
