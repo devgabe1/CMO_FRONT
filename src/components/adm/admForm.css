@@ -99,6 +99,7 @@
     transform: scale(1.5); /* Aumenta o tamanho do checkbox */
     margin-right: 85%;
   }
+  
   /* Responsividade */
   @media (max-width: 768px) {
     .formulario-container {

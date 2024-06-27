@@ -93,73 +93,76 @@ function ServicoRead() {
   };
 
   return (
-    <div className="table-container">
-            <div className="main-content"> 
-      <ChoiceBarADM />
-      </div>
+    <div className='page-backgroundADMTable'>
+  <div className="main-content"> 
+    <ChoiceBarADM />
+  </div>
+  <div className="table-container">
+    <h1>Cadastro de Serviços</h1>
+    <div className="button-container">
       <Link to='/adm/servicos/create'>
         <button className="button">Novo</button>
       </Link>
-      <h2>Cadastro de Serviços</h2>
       <div className="sort-options">
-  <button className="button" onClick={toggleSortOptions}>Ordenar</button>
-  <ul className={`dropdown ${showSortOptions ? 'show' : ''}`}>
-    <li onClick={() => requestSort('id_servico')}>Ordenar por ID</li>
-    <li onClick={() => requestSort('ordem_apresentacao')}>Ordenar por Ordem</li>
-    <li onClick={() => requestSort('ativo')}>Ordenar por Ativos/Inativos</li>
-  </ul>
-</div>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Título</th>
-            <th>Descrição</th>
-            <th>Imagem</th>
-            <th>Link</th>
-            <th>Ordem</th>
-            <th>Ativo</th>
-            <th>Alterar</th>
-            <th>Ativar/Desativar</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentServices.map((data) => {
-            return (
-              <tr key={data.id_servico}>
-                <td data-label="Título">{data.titulo_servico}</td>
-                <td data-label="Descrição">{data.desc_servico}</td>
-                <td data-label="Imagem">{data.img_servico}</td>
-                <td data-label="Link">{data.url_servico}</td>
-                <td data-label="Ordem">{data.ordem_apresentacao}</td>
-                <td data-label="Ativo" className={data.ativo ? '' : 'inactive'}>
-                  {data.ativo ? 'Ativo' : 'Inativo'}
-                </td>
-                <td data-label="Alterar">
-                  <Link to='/adm/servicos/update'>
-                    <button className="button" onClick={() => setData(data)}>Alterar</button>
-                  </Link>
-                </td>
-                <td data-label="Ativar/Desativar">
-                  <button className="button" onClick={() => toggleStatus(data)}>
-                    {data.ativo ? 'Desativar' : 'Ativar'}
-                  </button>
-                </td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
-      <div className="pagination">
-        <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>&laquo;</button>
-        {pageNumbers.map(number => (
-          <button key={number} onClick={() => paginate(number)} className={currentPage === number ? 'active' : ''}>
-            {number}
-          </button>
-        ))}
-        <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === pageNumbers.length}>&raquo;</button>
+        <button className="button" onClick={toggleSortOptions}>Ordenar</button>
+        <ul className={`dropdown ${showSortOptions ? 'show' : ''}`}>
+          <li onClick={() => requestSort('id_servico')}>Ordenar por ID</li>
+          <li onClick={() => requestSort('ordem_apresentacao')}>Ordenar por Ordem</li>
+          <li onClick={() => requestSort('ativo')}>Ordenar por Ativos/Inativos</li>
+        </ul>
       </div>
     </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Descrição</th>
+          <th>Imagem</th>
+          <th>Link</th>
+          <th>Ordem</th>
+          <th>Ativo</th>
+          <th>Alterar</th>
+          <th>Ativar/Desativar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {currentServices.map((data) => {
+          return (
+            <tr key={data.id_servico}>
+              <td data-label="Título">{data.titulo_servico}</td>
+              <td data-label="Descrição">{data.desc_servico}</td>
+              <td data-label="Imagem">{data.img_servico}</td>
+              <td data-label="Link">{data.url_servico}</td>
+              <td data-label="Ordem">{data.ordem_apresentacao}</td>
+              <td data-label="Ativo" className={data.ativo ? '' : 'inactive'}>
+                {data.ativo ? 'Ativo' : 'Inativo'}
+              </td>
+              <td data-label="Alterar">
+                <Link to='/adm/servicos/update'>
+                  <button className="button" onClick={() => setData(data)}>Alterar</button>
+                </Link>
+              </td>
+              <td data-label="Ativar/Desativar">
+                <button className="button" onClick={() => toggleStatus(data)}>
+                  {data.ativo ? 'Desativar' : 'Ativar'}
+                </button>
+              </td>
+            </tr>
+          )
+        })}
+      </tbody>
+    </table>
+    <div className="pagination">
+      <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>&laquo;</button>
+      {pageNumbers.map(number => (
+        <button key={number} onClick={() => paginate(number)} className={currentPage === number ? 'active' : ''}>
+          {number}
+        </button>
+      ))}
+      <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === pageNumbers.length}>&raquo;</button>
+    </div>
+  </div>
+</div>
   );
 }
 

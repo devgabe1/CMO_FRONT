@@ -1,6 +1,7 @@
 /* src/components/choiceBarADM/choiceBarADM.css */
 
 .choice-bar {
+  z-index: 2;
   display: flex;
   justify-content: center;
   position: fixed;
