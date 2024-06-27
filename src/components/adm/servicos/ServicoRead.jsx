@@ -98,15 +98,14 @@ function ServicoRead() {
       </Link>
       <h2>Cadastro de Serviços</h2>
       <div className="sort-options">
-        <button className="button" onClick={toggleSortOptions}>Ordenar</button>
-        {showSortOptions && (
-          <ul className="dropdown">
-            <li onClick={() => requestSort('id_servico')}>Ordenar por ID</li>
-            <li onClick={() => requestSort('ordem_apresentacao')}>Ordenar por Ordem</li>
-            <li onClick={() => requestSort('ativo')}>Ordenar por Ativos/Inativos</li>
-          </ul>
-        )}
-      </div>
+  <button className="button" onClick={toggleSortOptions}>Ordenar</button>
+  <ul className={`dropdown ${showSortOptions ? 'show' : ''}`}>
+    <li onClick={() => requestSort('id_servico')}>Ordenar por ID</li>
+    <li onClick={() => requestSort('ordem_apresentacao')}>Ordenar por Ordem</li>
+    <li onClick={() => requestSort('ativo')}>Ordenar por Ativos/Inativos</li>
+  </ul>
+</div>
+
       <table>
         <thead>
           <tr>
