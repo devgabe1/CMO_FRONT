@@ -28,7 +28,7 @@ function MarcaRead() {
   };
 
   const getData = () => {
-    api.get(`/admarcas`)
+    api.get(`/admMarcas`)
       .then((getData) => {
         setAPIData(getData.data);
       });
@@ -40,7 +40,7 @@ function MarcaRead() {
       desc: data.desc_marca,
       logo: data.logo_marca,
       url: data.url_marca,
-      atv: data.ativo ? 0 : 1 // Troca o valor booleano para 1 ou 0
+      atv: data.ativo ? 0 : 1
     };
 
     api.put(`/marcas/${data.id_marca}`, updatedData)
@@ -52,7 +52,6 @@ function MarcaRead() {
       });
   };
 
-  // Ordena as marcas com base em sortConfig
   const sortedBrands = [...APIData].sort((a, b) => {
     if (a[sortConfig.key] < b[sortConfig.key]) {
       return sortConfig.direction === 'ascending' ? -1 : 1;
@@ -63,7 +62,6 @@ function MarcaRead() {
     return 0;
   });
 
-  // Lógica para exibir marcas atuais
   const indexOfLastBrand = currentPage * brandsPerPage;
   const indexOfFirstBrand = indexOfLastBrand - brandsPerPage;
   const currentBrands = sortedBrands.slice(indexOfFirstBrand, indexOfLastBrand);
@@ -81,7 +79,7 @@ function MarcaRead() {
       direction = 'descending';
     }
     setSortConfig({ key, direction });
-    setShowSortOptions(false); // Esconde as opções de ordenação após selecionar
+    setShowSortOptions(false);
   };
 
   const toggleSortOptions = () => {
