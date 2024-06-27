@@ -28,7 +28,7 @@ function MarcaRead() {
   };
 
   const getData = () => {
-    api.get(`/admMarcas`)
+    api.get(`/admarcas`)
       .then((getData) => {
         setAPIData(getData.data);
       });
