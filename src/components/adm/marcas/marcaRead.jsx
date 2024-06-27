@@ -94,59 +94,68 @@ function MarcaRead() {
   };
 
   const renderPageNumbers = () => {
+    const pageButtons = [];
+  
+    pageButtons.push(
+      <button key="prev" onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
+        &laquo;
+      </button>
+    );
+  
+    pageButtons.push(
+      <button key="page1" onClick={() => paginate(1)} className={currentPage === 1 ? 'active' : ''}>
+        1
+      </button>
+    );
+  
     if (isSmallScreen) {
-      return (
-        <>
-          <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
-            &laquo;
+      if (currentPage === 2) {
+        pageButtons.push(
+          <button key="current" onClick={() => paginate(2)} className="active">
+            2
           </button>
-          <button onClick={() => paginate(1)} className={currentPage === 1 ? 'active' : ''}>
-            1
+        );
+      } else if (currentPage > 2) {
+        pageButtons.push(
+          <button key="current" onClick={() => paginate(currentPage)} className="active">
+            {currentPage}
           </button>
-          {currentPage > 2 && currentPage < totalPageNumbers && (
-            <>
-              <button onClick={() => paginate(currentPage)} className="active">
-                {currentPage}
-              </button>
-              {currentPage < totalPageNumbers - 1 && <span>...</span>}
-            </>
-          )}
-          {currentPage === 2 && (
-            <button onClick={() => paginate(2)} className="active">
-              2
-            </button>
-          )}
-          {currentPage >= totalPageNumbers && (
-            <button onClick={() => paginate(totalPageNumbers)} className="active">
-              {totalPageNumbers}
-            </button>
-          )}
-          {totalPageNumbers > 2 && currentPage < totalPageNumbers && (
-            <button
-              onClick={() => paginate(totalPageNumbers)}
-              className={currentPage === totalPageNumbers ? 'active' : ''}
-            >
-              {totalPageNumbers}
-            </button>
-          )}
-          <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === totalPageNumbers}>
-            &raquo;
+        );
+        if (currentPage < totalPageNumbers - 1) {
+          pageButtons.push(<span key="ellipsis">...</span>);
+        }
+      }
+  
+      if (currentPage !== totalPageNumbers) {
+        pageButtons.push(
+          <button
+            key="last"
+            onClick={() => paginate(totalPageNumbers)}
+            className={currentPage === totalPageNumbers ? 'active' : ''}
+          >
+            {totalPageNumbers}
           </button>
-        </>
-      );
+        );
+      }
+    } else {
+      for (let i = 2; i <= totalPageNumbers; i++) {
+        pageButtons.push(
+          <button key={i} onClick={() => paginate(i)} className={currentPage === i ? 'active' : ''}>
+            {i}
+          </button>
+        );
+      }
     }
   
-    const pageButtons = [];
-    for (let i = 1; i <= totalPageNumbers; i++) {
-      pageButtons.push(
-        <button key={i} onClick={() => paginate(i)} className={currentPage === i ? 'active' : ''}>
-          {i}
-        </button>
-      );
-    }
+    pageButtons.push(
+      <button key="next" onClick={() => paginate(currentPage + 1)} disabled={currentPage === totalPageNumbers}>
+        &raquo;
+      </button>
+    );
   
     return pageButtons;
   };
+  
   
   return (
     <div className='page-backgroundADMTable'>
