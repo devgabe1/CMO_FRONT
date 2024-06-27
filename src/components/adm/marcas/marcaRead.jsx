@@ -10,12 +10,22 @@ function MarcaRead() {
   const [brandsPerPage] = useState(6);
   const [sortConfig, setSortConfig] = useState({ key: 'id_marca', direction: 'ascending' });
   const [showSortOptions, setShowSortOptions] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
     api.get(`/admMarcas`)
       .then((response) => {
         setAPIData(response.data);
       });
+
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const setData = (data) => {
@@ -66,10 +76,7 @@ function MarcaRead() {
   const indexOfFirstBrand = indexOfLastBrand - brandsPerPage;
   const currentBrands = sortedBrands.slice(indexOfFirstBrand, indexOfLastBrand);
 
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(APIData.length / brandsPerPage); i++) {
-    pageNumbers.push(i);
-  }
+  const totalPageNumbers = Math.ceil(APIData.length / brandsPerPage);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -86,6 +93,61 @@ function MarcaRead() {
     setShowSortOptions(!showSortOptions);
   };
 
+  const renderPageNumbers = () => {
+    if (isSmallScreen) {
+      return (
+        <>
+          <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
+            &laquo;
+          </button>
+          <button onClick={() => paginate(1)} className={currentPage === 1 ? 'active' : ''}>
+            1
+          </button>
+          {currentPage > 2 && currentPage < totalPageNumbers && (
+            <>
+              <button onClick={() => paginate(currentPage)} className="active">
+                {currentPage}
+              </button>
+              {currentPage < totalPageNumbers - 1 && <span>...</span>}
+            </>
+          )}
+          {currentPage === 2 && (
+            <button onClick={() => paginate(2)} className="active">
+              2
+            </button>
+          )}
+          {currentPage >= totalPageNumbers && (
+            <button onClick={() => paginate(totalPageNumbers)} className="active">
+              {totalPageNumbers}
+            </button>
+          )}
+          {totalPageNumbers > 2 && currentPage < totalPageNumbers && (
+            <button
+              onClick={() => paginate(totalPageNumbers)}
+              className={currentPage === totalPageNumbers ? 'active' : ''}
+            >
+              {totalPageNumbers}
+            </button>
+          )}
+          <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === totalPageNumbers}>
+            &raquo;
+          </button>
+        </>
+      );
+    }
+  
+    const pageButtons = [];
+    for (let i = 1; i <= totalPageNumbers; i++) {
+      pageButtons.push(
+        <button key={i} onClick={() => paginate(i)} className={currentPage === i ? 'active' : ''}>
+          {i}
+        </button>
+      );
+    }
+  
+    return pageButtons;
+  };
+  
   return (
     <div className='page-backgroundADMTable'>
       <div className="main-content">
@@ -142,13 +204,7 @@ function MarcaRead() {
           </tbody>
         </table>
         <div className="pagination">
-          <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>&laquo;</button>
-          {pageNumbers.map(number => (
-            <button key={number} onClick={() => paginate(number)} className={currentPage === number ? 'active' : ''}>
-              {number}
-            </button>
-          ))}
-          <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === pageNumbers.length}>&raquo;</button>
+          {renderPageNumbers()}
         </div>
       </div>
     </div>
