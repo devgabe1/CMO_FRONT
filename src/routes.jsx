@@ -18,6 +18,7 @@ import MarcaUpdate from './components/adm/marcas/marcaUpdate';
 import MarcaCreate from './components/adm/marcas/marcaCreate';
 import TipoProdutoRead from './components/adm/tipoProduto/tipoProdutoRead';
 import TipoProdutoUpdate from './components/adm/tipoProduto/tipoProdutoUpdate';
+import TipoProdutoCreate from './components/adm/tipoProduto/tipoProdutoCreate';
 
 
 import TestConnection from './components/TestConnection'; // Importa o componente de teste
@@ -42,6 +43,10 @@ const AppRoutes = () => {
       <Route path="/adm/marcas/create" element={<MarcaCreate />} />
       <Route path="/adm/tipoProduto" element={<TipoProdutoRead />} />
       <Route path="/adm/tipoProduto/update" element={<TipoProdutoUpdate />} />
+      <Route path="/adm/tipoProduto/create" element={<TipoProdutoCreate />} />
+
+
+
       <Route path="/test-connection" element={<TestConnection />} /> {/* Rota para o teste */}
     </Routes>
   );
