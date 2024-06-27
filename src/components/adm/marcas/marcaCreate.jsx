@@ -1,57 +1,55 @@
-// src/components/adm/servicos/ServicoCreate.jsx
-
 import React, { useState } from 'react';
-import { Button, Checkbox, Form } from 'semantic-ui-react'
 import api from '../../../api/api.jsx';
+import ChoiceBarADM from '../../choiceBarADM/choiceBarADM';
+import '../admForm.css';
 
-export default function Create() {
-    const [titulo, setTitulo] = useState('');
-    const [desc, setDesc] = useState('');
-    const [img, setImagem] = useState('');
-    const [url, setURL] = useState('');
-    const [ordem, setOrdem] = useState(0);
-    const [ativo, setAtivo] = useState(false);
+export default function MarcaCreate() {
+  const [desc, setDesc] = useState('');
+  const [logo, setLogo] = useState('');
+  const [url, setURL] = useState('');
+  const [ativo, setAtivo] = useState(false);
 
-    const postServico = () => {
-        api.post(`/servicos`, {
-            titulo,
-            desc,
-            img,
-            url,
-            ordem,
-            ativo
-        }).then(() => {
-            alert('Serviço gravado com sucesso');
-        })
-    }
-    return (
-        <div>
-            <Form className="create-form">
-                <Form.Field>
-                    <label>Título</label>
-                    <input placeholder='Título' onChange={(e) => setTitulo(e.target.value)}/>
-                </Form.Field>
-                <Form.Field>
-                    <label>Descrição</label>
-                    <input placeholder='Descrição' onChange={(e) => setDesc(e.target.value)}/>
-                </Form.Field>
-                <Form.Field>
-                    <label>Imagem</label>
-                    <input placeholder='URL da Imagem' onChange={(e) => setImagem(e.target.value)}/>
-                </Form.Field>
-                <Form.Field>
-                    <label>Link</label>
-                    <input placeholder='URL da página' onChange={(e) => setURL(e.target.value)}/>
-                </Form.Field>
-                <Form.Field>
-                    <label>Ordem</label>
-                    <input placeholder='Ordem' onChange={(e) => setOrdem(e.target.value)}/>
-                </Form.Field>
-                <Form.Field>
-                    <Checkbox disabled label='Ativo' onChange={(e) => setAtivo(!ativo)}/>
-                </Form.Field>
-                <Button onClick={postServico} type='submit'>Gravar</Button>
-            </Form>
-        </div>
-    )
+  const postMarca = () => {
+    api.post(`/marcas`, {
+      desc,
+      logo,
+      url,
+      ativo
+    }).then(() => {
+      alert('Marca gravada com sucesso');
+    }).catch(error => {
+      console.error("Error posting data:", error);
+      alert('Erro ao gravar a marca');
+    });
+  };
+
+  return (
+    <div className='page-backgroundADMTable'>
+      <div className="main-content">
+        <ChoiceBarADM />
+      </div>
+      <div className="formulario-container">
+        <h2>Nova Marca</h2>
+        <form className="ui-form">
+          <div className="campo-formulario">
+            <label>Descrição</label>
+            <input type="text" placeholder="Descrição" onChange={(e) => setDesc(e.target.value)} />
+          </div>
+          <div className="campo-formulario">
+            <label>Logo</label>
+            <input type="text" placeholder="URL do Logo" onChange={(e) => setLogo(e.target.value)} />
+          </div>
+          <div className="campo-formulario">
+            <label>Link</label>
+            <input type="text" placeholder="URL da página" onChange={(e) => setURL(e.target.value)} />
+          </div>
+          <div className="campo-formulario checkbox-container">
+            <label htmlFor="ativo">Ativo</label>
+            <input type="checkbox" id="ativo" checked={ativo} onChange={(e) => setAtivo(e.target.checked)} />
+          </div>
+          <button type="button" onClick={postMarca}>Gravar</button>
+        </form>
+      </div>
+    </div>
+  );
 }
