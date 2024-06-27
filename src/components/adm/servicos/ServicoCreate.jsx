@@ -48,12 +48,10 @@ export default function ServicoCreate() {
           <label>Ordem</label>
           <input type="text" placeholder="Ordem" onChange={(e) => setOrdem(e.target.value)} />
         </div>
-        <div className="campo-formulario">
-          <label>
-            <input type="checkbox" checked={ativo} onChange={() => setAtivo(!ativo)} />
-            Ativo
-          </label>
-        </div>
+        <div className="campo-formulario checkbox-container">
+      <label htmlFor="ativo">Ativo</label>
+      <input type="checkbox" id="ativo" checked={ativo} onChange={(e) => setAtivo(e.target.checked)} />
+    </div>
         <button type="button" onClick={postServico}>Gravar</button>
       </form>
     </div>

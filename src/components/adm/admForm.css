@@ -83,7 +83,22 @@
     font-size: 14px;
     margin-top: 5px;
   }
+
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha o conteúdo no início */
+  }
   
+  .checkbox-container label {
+    margin-right: auto; /* Espaçamento à direita do texto "Ativo" */
+  }
+  
+  .checkbox-container input[type="checkbox"] {
+    margin-left: 0; /* Remove qualquer margem à esquerda */
+    transform: scale(1.5); /* Aumenta o tamanho do checkbox */
+    margin-right: 85%;
+  }
   /* Responsividade */
   @media (max-width: 768px) {
     .formulario-container {
@@ -102,5 +117,11 @@
         padding: 10px 20px; /* Ajusta o padding do botão para telas menores */
         font-size: 14px; /* Ajusta o tamanho do texto do botão para telas menores */
     }
+
+    .checkbox-container input[type="checkbox"] {
+        margin-left: 0; /* Remove qualquer margem à esquerda */
+        transform: scale(1.5); /* Aumenta o tamanho do checkbox */
+        margin-right: 75%;
+      }
   }
   

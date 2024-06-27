@@ -56,37 +56,35 @@ export default function ServicoUpdate() {
   };
 
   return (
-    <div className="formulario-container">
-      <h2>Alterar Serviço</h2>
-      <form className="ui-form">
-        <div className="campo-formulario">
-          <label>Título</label>
-          <input type="text" placeholder="Título" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
-        </div>
-        <div className="campo-formulario">
-          <label>Descrição</label>
-          <input type="text" placeholder="Descrição" value={desc} onChange={(e) => setDesc(e.target.value)} />
-        </div>
-        <div className="campo-formulario">
-          <label>Imagem</label>
-          <input type="text" placeholder="URL da Imagem" value={imagem} onChange={(e) => setImagem(e.target.value)} />
-        </div>
-        <div className="campo-formulario">
-          <label>Link</label>
-          <input type="text" placeholder="URL da página" value={url} onChange={(e) => setURL(e.target.value)} />
-        </div>
-        <div className="campo-formulario">
-          <label>Ordem</label>
-          <input type="text" placeholder="Ordem" value={ordem} onChange={(e) => setOrdem(e.target.value)} />
-        </div>
-        <div className="campo-formulario">
-          <label>
-            <input type="checkbox" checked={ativo} onChange={(e) => setAtivo(e.target.checked)} />
-            Ativo
-          </label>
-        </div>
-        <button type="button" onClick={updateAPIData}>Update</button>
-      </form>
+<div className="formulario-container">
+  <h2>Alterar Serviço</h2>
+  <form className="ui-form">
+    <div className="campo-formulario">
+      <label>Título</label>
+      <input type="text" placeholder="Título" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
     </div>
+    <div className="campo-formulario">
+      <label>Descrição</label>
+      <input type="text" placeholder="Descrição" value={desc} onChange={(e) => setDesc(e.target.value)} />
+    </div>
+    <div className="campo-formulario">
+      <label>Imagem</label>
+      <input type="text" placeholder="URL da Imagem" value={imagem} onChange={(e) => setImagem(e.target.value)} />
+    </div>
+    <div className="campo-formulario">
+      <label>Link</label>
+      <input type="text" placeholder="URL da página" value={url} onChange={(e) => setURL(e.target.value)} />
+    </div>
+    <div className="campo-formulario">
+      <label>Ordem</label>
+      <input type="text" placeholder="Ordem" value={ordem} onChange={(e) => setOrdem(e.target.value)} />
+    </div>
+    <div className="campo-formulario checkbox-container">
+      <label htmlFor="ativo">Ativo</label>
+      <input type="checkbox" id="ativo" checked={ativo} onChange={(e) => setAtivo(e.target.checked)} />
+    </div>
+    <button type="button" onClick={updateAPIData}>Update</button>
+  </form>
+</div>
   );
 }
