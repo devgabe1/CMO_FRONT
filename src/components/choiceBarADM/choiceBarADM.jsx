@@ -13,6 +13,7 @@ function ChoiceBar() {
 
   const options = [
     { label: 'Chamados', path: '/adm/chamados' },
+    { label: 'Contatos', path: '/adm/contatos' },
     { label: 'Tipo de Produto', path: '/adm/tipoProduto' },
     { label: 'Marcas', path: '/adm/marcas' },
     { label: 'Serviços', path: '/adm/servicos' },

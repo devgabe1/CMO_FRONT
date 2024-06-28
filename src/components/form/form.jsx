@@ -1,10 +1,8 @@
-// src/components/form/form.jsx
-
 import React, { useState } from 'react';
+import api from '../../api/api.jsx'; // Certifique-se de que o caminho está correto
 import './form.css'; // Arquivo de estilos CSS
 
 const FormularioContato = () => {
-  // Estado para armazenar os valores dos campos do formulário
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
@@ -13,22 +11,16 @@ const FormularioContato = () => {
     mensagem: ''
   });
 
-  // Estado para armazenar os erros de validação dos campos
   const [formErrors, setFormErrors] = useState({
     email: '',
     telefone: ''
   });
 
-  // Função para lidar com as mudanças nos campos de entrada
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Aplicar máscara no campo de telefone
     if (name === 'telefone') {
-      // Remove caracteres não numéricos e os parênteses da máscara
       const cleaned = ('' + value).replace(/\D/g, '');
-
-      // Verifica se a máscara deve ser aplicada
       let telefoneFormatted = '';
       if (cleaned.length >= 2) {
         telefoneFormatted = `(${cleaned.slice(0, 2)}`;
@@ -53,25 +45,19 @@ const FormularioContato = () => {
       }));
     }
 
-    // Realiza a validação do campo conforme necessário
     validateField(name, value);
   };
 
-  // Função para validar o campo de email
   const validateEmail = (email) => {
-    // Expressão regular para validar email
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
   };
 
-  // Função para validar o campo de telefone
   const validateTelefone = (telefone) => {
-    // Expressão regular para validar telefone com apenas números após o DDD
     const regex = /^\(\d{2}\) \d{4,5}-\d{4}$/;
     return regex.test(telefone);
   };
 
-  // Função para validar o campo especificado
   const validateField = (fieldName, value) => {
     switch (fieldName) {
       case 'email':
@@ -93,22 +79,35 @@ const FormularioContato = () => {
     }
   };
 
-  // Função para lidar com o envio do formulário
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Validar todos os campos antes de enviar
     const emailValid = validateEmail(formData.email);
     const telefoneValid = validateTelefone(formData.telefone);
 
-    // Se algum campo não for válido, exibir mensagem de erro
     if (!emailValid || !telefoneValid) {
       alert('Por favor, corrija os erros no formulário antes de enviar.');
       return;
     }
 
-    // Aqui você pode implementar a lógica para enviar os dados do formulário
-    console.log(formData); // Exemplo de como lidar com os dados, substitua com sua lógica de envio
-    // Limpar o formulário após o envio (opcional)
+    const contatoData = {
+      nome: formData.nome,
+      email: formData.email,
+      assunto: formData.assunto,
+      telefone: formData.telefone,
+      mensagem: formData.mensagem
+    };
+
+    console.log("Dados enviados:", contatoData);
+    
+    api.post(`/contato`, contatoData)
+      .then(() => {
+        alert('Contato enviado com sucesso');
+      })
+      .catch(error => {
+        console.error("Erro ao enviar contato:", error);
+        alert('Erro ao enviar o contato');
+      });
+
     setFormData({
       nome: '',
       email: '',

@@ -1,57 +1,73 @@
-// src/components/adm/servicos/ServicoCreate.jsx
-
 import React, { useState } from 'react';
-import { Button, Checkbox, Form } from 'semantic-ui-react'
 import api from '../../../api/api.jsx';
+import ChoiceBarADM from '../../choiceBarADM/choiceBarADM';
+import '../admForm.css';
 
-export default function Create() {
-    const [titulo, setTitulo] = useState('');
-    const [desc, setDesc] = useState('');
-    const [img, setImagem] = useState('');
-    const [url, setURL] = useState('');
-    const [ordem, setOrdem] = useState(0);
-    const [ativo, setAtivo] = useState(false);
+export default function ChamadoCreate() {
+  const [cliente, setCliente] = useState('');
+  const [fone, setFone] = useState('');
+  const [email, setEmail] = useState('');
+  const [tipoProd, setTipoProd] = useState('');
+  const [produto, setProduto] = useState('');
+  const [marca, setMarca] = useState('');
+  const [problema, setProblema] = useState('');
 
-    const postServico = () => {
-        api.post(`/servicos`, {
-            titulo,
-            desc,
-            img,
-            url,
-            ordem,
-            ativo
-        }).then(() => {
-            alert('Serviço gravado com sucesso');
-        })
-    }
-    return (
-        <div>
-            <Form className="create-form">
-                <Form.Field>
-                    <label>Título</label>
-                    <input placeholder='Título' onChange={(e) => setTitulo(e.target.value)}/>
-                </Form.Field>
-                <Form.Field>
-                    <label>Descrição</label>
-                    <input placeholder='Descrição' onChange={(e) => setDesc(e.target.value)}/>
-                </Form.Field>
-                <Form.Field>
-                    <label>Imagem</label>
-                    <input placeholder='URL da Imagem' onChange={(e) => setImagem(e.target.value)}/>
-                </Form.Field>
-                <Form.Field>
-                    <label>Link</label>
-                    <input placeholder='URL da página' onChange={(e) => setURL(e.target.value)}/>
-                </Form.Field>
-                <Form.Field>
-                    <label>Ordem</label>
-                    <input placeholder='Ordem' onChange={(e) => setOrdem(e.target.value)}/>
-                </Form.Field>
-                <Form.Field>
-                    <Checkbox disabled label='Ativo' onChange={(e) => setAtivo(!ativo)}/>
-                </Form.Field>
-                <Button onClick={postServico} type='submit'>Gravar</Button>
-            </Form>
-        </div>
-    )
+  const postChamado = () => {
+    api.post(`/chamados`, {
+      cliente,
+      fone,
+      email,
+      tipoProd,
+      produto,
+      marca,
+      problema
+    }).then(() => {
+      alert('Chamado gravado com sucesso');
+    }).catch(error => {
+      console.error("Error posting data:", error);
+      alert('Erro ao gravar o chamado');
+    });
+  };
+
+  return (
+    <div className='page-backgroundADMTable'>
+      <div className="main-content">
+        <ChoiceBarADM />
+      </div>
+      <div className="formulario-container">
+        <h2>Novo Chamado</h2>
+        <form className="ui-form">
+          <div className="campo-formulario">
+            <label>Cliente</label>
+            <input type="text" placeholder="Nome do Cliente" onChange={(e) => setCliente(e.target.value)} />
+          </div>
+          <div className="campo-formulario">
+            <label>Telefone</label>
+            <input type="text" placeholder="Telefone do Cliente" onChange={(e) => setFone(e.target.value)} />
+          </div>
+          <div className="campo-formulario">
+            <label>Email</label>
+            <input type="email" placeholder="Email do Cliente" onChange={(e) => setEmail(e.target.value)} />
+          </div>
+          <div className="campo-formulario">
+            <label>Tipo de Produto</label>
+            <input type="text" placeholder="Tipo de Produto" onChange={(e) => setTipoProd(e.target.value)} />
+          </div>
+          <div className="campo-formulario">
+            <label>Produto</label>
+            <input type="text" placeholder="Produto" onChange={(e) => setProduto(e.target.value)} />
+          </div>
+          <div className="campo-formulario">
+            <label>Marca</label>
+            <input type="text" placeholder="Marca" onChange={(e) => setMarca(e.target.value)} />
+          </div>
+          <div className="campo-formulario">
+            <label>Problema</label>
+            <input type="text" placeholder="Problema" onChange={(e) => setProblema(e.target.value)} />
+          </div>
+          <button type="button" onClick={postChamado}>Gravar</button>
+        </form>
+      </div>
+    </div>
+  );
 }
