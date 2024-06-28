@@ -18,3 +18,95 @@
     min-height: 100vh; /* Garante que o contêiner ocupe a altura total da viewport */
     font-family: 'Arial', sans-serif; /* Fonte mais legível */
   }
+  .home-content {
+    text-align: center;
+  }
+  
+  .content-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .content-left, .content-right {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 70px; /* Adiciona mais espaço acima dos textos e botões */
+
+  }
+  
+  .content-left p, .content-right p {
+    margin: 5px 0;
+  }
+  
+  .whatsapp-button {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #25D366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .whatsapp-button:hover {
+    background-color: #128C7E;
+  }
+  
+
+  .p3 {
+    font-size: 1.6rem; /* Tamanho do texto */
+    line-height: 1.6; /* Altura da linha para melhor legibilidade */
+    color: #000000; /* Cor do texto */
+    margin-bottom: 1px; /* Espaçamento inferior */
+    font-family: 'SST';
+    font-weight: bold;
+    margin-top: 1px;
+  }
+
+/* Responsividade */
+@media (max-width: 1300px) {
+  .home-page-container {
+    padding: 10px; /* Ajusta o padding para telas menores */
+  }
+
+  .home-content {
+    width: 100%;
+    padding: 0 10px; /* Adiciona padding nas laterais para evitar que o conteúdo toque nas bordas */
+  }
+
+  h1 {
+    font-size: 1.8rem; /* Ajusta o tamanho do título em telas menores */
+    margin-bottom: 10px;
+    margin-top: 10px;
+    word-wrap: break-word; /* Quebra o texto longo para evitar que ultrapasse a largura da tela */
+  }
+
+  .content-section {
+    flex-direction: column; /* Coloca os elementos em coluna em vez de linha */
+    align-items: center;
+  }
+
+  .content-left, .content-right {
+    width: 100%; /* Define largura total para cada seção */
+    text-align: center; /* Centraliza o texto */
+    margin-top: 20px; /* Reduz espaço acima dos textos e botões em telas menores */
+    margin-bottom: 20px; /* Adiciona espaço inferior entre as seções */
+  }
+
+  .whatsapp-button {
+    width: 100%; /* Botão ocupa toda a largura */
+    font-size: 1rem; /* Ajusta o tamanho do texto do botão */
+    padding: 10px; /* Ajusta o padding do botão para telas menores */
+  }
+
+  .p3 {
+    font-size: 1rem; /* Ajusta o tamanho do texto para telas menores */
+    line-height: 1.4; /* Ajusta a altura da linha para telas menores */
+  }
+}
