@@ -16,3 +16,12 @@
   font-size: 40px;
   color: #323232; /* Altere esta cor para a cor desejada */
 }
+
+@media (max-width: 1000px) {
+  .slick-prev:before, .slick-next:before {
+    font-size: 0px;
+    color: #ffffff; /* Altere esta cor para a cor desejada */
+  }
+  
+
+}
