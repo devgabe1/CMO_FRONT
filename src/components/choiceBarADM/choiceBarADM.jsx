@@ -12,7 +12,7 @@ function ChoiceBar() {
   };
 
   const options = [
-    { label: 'Chamados', path: '/adm/servicos' },
+    { label: 'Chamados', path: '/adm/chamados' },
     { label: 'Tipo de Produto', path: '/adm/tipoProduto' },
     { label: 'Marcas', path: '/adm/marcas' },
     { label: 'Serviços', path: '/adm/servicos' },
