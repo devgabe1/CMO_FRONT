@@ -8,7 +8,7 @@ function TipoProdutoRead() {
   const [APIData, setAPIData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(6);
-  const [sortConfig, setSortConfig] = useState({ key: 'id_tipoProduto', direction: 'ascending' });
+  const [sortConfig, setSortConfig] = useState({ key: 'id_tipo', direction: 'ascending' });
   const [showSortOptions, setShowSortOptions] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
 
@@ -49,7 +49,7 @@ function TipoProdutoRead() {
       ativo: data.ativo ? 0 : 1
     };
 
-    api.put(`/tipoProduto/${data.id_tipoProduto}`, updatedData)
+    api.put(`/tipoProduto/${data.id_tipo}`, updatedData)
       .then(() => {
         getData();
       })
@@ -59,13 +59,20 @@ function TipoProdutoRead() {
   };
 
   const sortedItems = [...APIData].sort((a, b) => {
-    if (a[sortConfig.key] < b[sortConfig.key]) {
-      return sortConfig.direction === 'ascending' ? -1 : 1;
+    const aKey = a[sortConfig.key];
+    const bKey = b[sortConfig.key];
+
+    if (typeof aKey === 'number' && typeof bKey === 'number') {
+      return sortConfig.direction === 'ascending' ? aKey - bKey : bKey - aKey;
+    } else {
+      if (aKey < bKey) {
+        return sortConfig.direction === 'ascending' ? -1 : 1;
+      }
+      if (aKey > bKey) {
+        return sortConfig.direction === 'ascending' ? 1 : -1;
+      }
+      return 0;
     }
-    if (a[sortConfig.key] > b[sortConfig.key]) {
-      return sortConfig.direction === 'ascending' ? 1 : -1;
-    }
-    return 0;
   });
 
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -78,8 +85,8 @@ function TipoProdutoRead() {
 
   const requestSort = (key) => {
     let direction = 'ascending';
-    if (sortConfig.key === key && sortConfig.direction === 'ascending') {
-      direction = 'descending';
+    if (sortConfig.key === key) {
+      direction = sortConfig.direction === 'ascending' ? 'descending' : 'ascending';
     }
     setSortConfig({ key, direction });
     setShowSortOptions(false);
@@ -91,19 +98,19 @@ function TipoProdutoRead() {
 
   const renderPageNumbers = () => {
     const pageButtons = [];
-  
+
     pageButtons.push(
       <button key="prev" onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
         &laquo;
       </button>
     );
-  
+
     pageButtons.push(
       <button key="page1" onClick={() => paginate(1)} className={currentPage === 1 ? 'active' : ''}>
         1
       </button>
     );
-  
+
     if (isSmallScreen) {
       if (currentPage === 2) {
         pageButtons.push(
@@ -121,7 +128,7 @@ function TipoProdutoRead() {
           pageButtons.push(<span key="ellipsis">...</span>);
         }
       }
-  
+
       if (currentPage !== totalPageNumbers) {
         pageButtons.push(
           <button
@@ -142,13 +149,13 @@ function TipoProdutoRead() {
         );
       }
     }
-  
+
     pageButtons.push(
       <button key="next" onClick={() => paginate(currentPage + 1)} disabled={currentPage === totalPageNumbers}>
         &raquo;
       </button>
     );
-  
+
     return pageButtons;
   };
 
@@ -166,7 +173,7 @@ function TipoProdutoRead() {
           <div className="sort-options">
             <button className="button" onClick={toggleSortOptions}>Ordenar</button>
             <ul className={`dropdown ${showSortOptions ? 'show' : ''}`}>
-              <li onClick={() => requestSort('id_tipoProduto')}>Ordenar por ID</li>
+              <li onClick={() => requestSort('id_tipo')}>Ordenar por ID</li>
               <li onClick={() => requestSort('ativo')}>Ordenar por Ativos/Inativos</li>
             </ul>
           </div>
